@@ -1,0 +1,2016 @@
+---------Module name:model.layers.0.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[1.7563e+05 6.3396e+04 4.2576e+04 ... 3.3134e-24 1.8887e-24 8.1467e-26]
+SVD(XW) Max bias with rank limitation:3523084.97681795
+SVD(XW) Middlebias with rank limitation:0.08044324360266973
+SVD(XW) Average bias with rank limitation::1.0848533006722043
+
+|X * hatW - X * W| middle compared bias:0.08044324359897694
+
+---------Module name:model.layers.0.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[1.7563e+05 6.3396e+04 4.2576e+04 ... 3.3134e-24 1.8887e-24 8.1467e-26]
+SVD(XW) Max bias with rank limitation:384601.0448729843
+SVD(XW) Middlebias with rank limitation:0.08794388266223294
+SVD(XW) Average bias with rank limitation::1.0577481449972008
+
+|X * hatW - X * W| middle compared bias:0.08794388266830332
+
+---------Module name:model.layers.0.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[1.7563e+05 6.3396e+04 4.2576e+04 ... 3.3134e-24 1.8887e-24 8.1467e-26]
+SVD(XW) Max bias with rank limitation:161245.88751680322
+SVD(XW) Middlebias with rank limitation:0.46632908442424126
+SVD(XW) Average bias with rank limitation::2.5715719674578588
+
+|X * hatW - X * W| middle compared bias:0.46632908440399923
+
+---------Module name:model.layers.0.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[2.2963e+03 6.8699e+02 1.4838e+02 ... 1.1432e-07 1.0200e-07 8.6023e-08]
+SVD(XW) Max bias with rank limitation:1207303.8644840778
+SVD(XW) Middlebias with rank limitation:0.40226091762494914
+SVD(XW) Average bias with rank limitation::2.9194523932510283
+
+|X * hatW - X * W| middle compared bias:0.40226237581396584
+
+---------Module name:model.layers.0.mlp.up_proj---------
+rank of X.T * X:4096
+values:[2.2924e+05 6.2963e+04 4.2186e+04 ... 7.1793e-10 5.1982e-11 2.8959e-11]
+SVD(XW) Max bias with rank limitation:145819203.70279655
+SVD(XW) Middlebias with rank limitation:0.43454542127774437
+SVD(XW) Average bias with rank limitation::4.9889550736065535
+
+|X * hatW - X * W| middle compared bias:0.43454320387776235
+
+---------Module name:model.layers.0.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[2.2924e+05 6.2963e+04 4.2186e+04 ... 7.1793e-10 5.1982e-11 2.8959e-11]
+SVD(XW) Max bias with rank limitation:15439244.530493092
+SVD(XW) Middlebias with rank limitation:0.3925743953143823
+SVD(XW) Average bias with rank limitation::4.627703810290863
+
+|X * hatW - X * W| middle compared bias:0.39257603589909235
+
+---------Module name:model.layers.0.mlp.down_proj---------
+rank of X.T * X:14336
+values:[5.9395e+04 1.6217e+04 1.9901e+03 ... 5.1842e-19 3.1542e-19 2.5665e-20]
+SVD(XW) Max bias with rank limitation:5125377.953235717
+SVD(XW) Middlebias with rank limitation:0.3469502646006245
+SVD(XW) Average bias with rank limitation::2.614850764892756
+
+|X * hatW - X * W| middle compared bias:0.3469438378261236
+
+---------Module name:model.layers.1.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[7.5913e+05 1.4970e+05 1.0600e+05 ... 3.5081e-11 7.7517e-12 4.7460e-12]
+SVD(XW) Max bias with rank limitation:377661995.7805209
+SVD(XW) Middlebias with rank limitation:0.055307548737961065
+SVD(XW) Average bias with rank limitation::8.064143891737643
+
+|X * hatW - X * W| middle compared bias:0.0553082462745358
+
+---------Module name:model.layers.1.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[7.5913e+05 1.4970e+05 1.0600e+05 ... 3.5081e-11 7.7517e-12 4.7460e-12]
+SVD(XW) Max bias with rank limitation:596716.2372929832
+SVD(XW) Middlebias with rank limitation:0.05962680466329741
+SVD(XW) Average bias with rank limitation::3.415300200403312
+
+|X * hatW - X * W| middle compared bias:0.059628871015993776
+
+---------Module name:model.layers.1.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[7.5913e+05 1.4970e+05 1.0600e+05 ... 3.5081e-11 7.7517e-12 4.7460e-12]
+SVD(XW) Max bias with rank limitation:763503.1679206317
+SVD(XW) Middlebias with rank limitation:0.26947228697891545
+SVD(XW) Average bias with rank limitation::2.7464887449938407
+
+|X * hatW - X * W| middle compared bias:0.26947067733857827
+
+---------Module name:model.layers.1.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[4.3718e+03 1.1034e+03 3.4442e+02 ... 3.3377e-05 3.3129e-05 3.1520e-05]
+SVD(XW) Max bias with rank limitation:81940870.4339485
+SVD(XW) Middlebias with rank limitation:0.5269086085890431
+SVD(XW) Average bias with rank limitation::5.669220389226377
+
+|X * hatW - X * W| middle compared bias:0.5269062910167862
+
+---------Module name:model.layers.1.mlp.up_proj---------
+rank of X.T * X:4096
+values:[3.4768e+05 1.8257e+05 8.0867e+04 ... 1.3264e-08 1.5485e-09 2.4055e-10]
+SVD(XW) Max bias with rank limitation:8155549.522642534
+SVD(XW) Middlebias with rank limitation:0.5902628070591045
+SVD(XW) Average bias with rank limitation::5.0027252867454255
+
+|X * hatW - X * W| middle compared bias:0.5902615674483356
+
+---------Module name:model.layers.1.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[3.4768e+05 1.8257e+05 8.0867e+04 ... 1.3264e-08 1.5485e-09 2.4055e-10]
+SVD(XW) Max bias with rank limitation:5099506.361711281
+SVD(XW) Middlebias with rank limitation:0.49026137962704125
+SVD(XW) Average bias with rank limitation::3.3706150343960193
+
+|X * hatW - X * W| middle compared bias:0.49026220096334405
+
+---------Module name:model.layers.1.mlp.down_proj---------
+rank of X.T * X:14336
+values:[1.5572e+08 1.2660e+04 2.1217e+03 ... 9.6123e-19 4.9942e-19 5.9484e-20]
+SVD(XW) Max bias with rank limitation:3499103.5509037753
+SVD(XW) Middlebias with rank limitation:0.483679290134334
+SVD(XW) Average bias with rank limitation::2.644454571040335
+
+|X * hatW - X * W| middle compared bias:0.4838078544729178
+
+---------Module name:model.layers.2.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[1.1347e+06 4.1285e+05 3.2299e+05 ... 1.4029e-09 1.0439e-09 7.9033e-10]
+SVD(XW) Max bias with rank limitation:3455742.636206971
+SVD(XW) Middlebias with rank limitation:0.14670428366560667
+SVD(XW) Average bias with rank limitation::2.550341060943776
+
+|X * hatW - X * W| middle compared bias:0.14670450178679081
+
+---------Module name:model.layers.2.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[1.1347e+06 4.1285e+05 3.2299e+05 ... 1.4029e-09 1.0439e-09 7.9033e-10]
+SVD(XW) Max bias with rank limitation:2347023.860864873
+SVD(XW) Middlebias with rank limitation:0.1637429475157705
+SVD(XW) Average bias with rank limitation::31.097587681191726
+
+|X * hatW - X * W| middle compared bias:0.16374310566333097
+
+---------Module name:model.layers.2.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[1.1347e+06 4.1285e+05 3.2299e+05 ... 1.4029e-09 1.0439e-09 7.9033e-10]
+SVD(XW) Max bias with rank limitation:1610078.5328784026
+SVD(XW) Middlebias with rank limitation:0.30395213559687595
+SVD(XW) Average bias with rank limitation::2.8774479855748654
+
+|X * hatW - X * W| middle compared bias:0.3039513278977855
+
+---------Module name:model.layers.2.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[3.5159e+04 1.6291e+03 6.6884e+02 ... 4.5663e-07 4.2107e-07 3.6691e-07]
+SVD(XW) Max bias with rank limitation:6782295.814488326
+SVD(XW) Middlebias with rank limitation:0.5042240687114314
+SVD(XW) Average bias with rank limitation::3.7459798580397963
+
+|X * hatW - X * W| middle compared bias:0.5042305307583945
+
+---------Module name:model.layers.2.mlp.up_proj---------
+rank of X.T * X:4096
+values:[5.9562e+05 1.2382e+05 9.6827e+04 ... 1.1587e-10 8.3795e-11 1.3103e-11]
+SVD(XW) Max bias with rank limitation:23299698.03303387
+SVD(XW) Middlebias with rank limitation:0.6025383406877202
+SVD(XW) Average bias with rank limitation::4.339306157715377
+
+|X * hatW - X * W| middle compared bias:0.6025383372942662
+
+---------Module name:model.layers.2.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[5.9562e+05 1.2382e+05 9.6827e+04 ... 1.1587e-10 8.3795e-11 1.3103e-11]
+SVD(XW) Max bias with rank limitation:28129964.024009343
+SVD(XW) Middlebias with rank limitation:0.4744334558695296
+SVD(XW) Average bias with rank limitation::5.741999589401252
+
+|X * hatW - X * W| middle compared bias:0.47443346037860235
+
+---------Module name:model.layers.2.mlp.down_proj---------
+rank of X.T * X:14336
+values:[2.5402e+04 3.4181e+03 2.0180e+03 ... 2.7936e-18 1.2838e-18 4.1842e-19]
+SVD(XW) Max bias with rank limitation:25290943.243735112
+SVD(XW) Middlebias with rank limitation:0.5848659854325615
+SVD(XW) Average bias with rank limitation::3.22042311367952
+
+|X * hatW - X * W| middle compared bias:0.5848678478777756
+
+---------Module name:model.layers.3.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[1.0797e+06 3.0236e+05 2.7305e+05 ... 2.0550e-01 1.7951e-01 2.6323e-08]
+SVD(XW) Max bias with rank limitation:8189799.209546171
+SVD(XW) Middlebias with rank limitation:0.14615075022548868
+SVD(XW) Average bias with rank limitation::2.3238056362931143
+
+|X * hatW - X * W| middle compared bias:0.14615075021741447
+
+---------Module name:model.layers.3.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[1.0797e+06 3.0236e+05 2.7305e+05 ... 2.0550e-01 1.7951e-01 2.6323e-08]
+SVD(XW) Max bias with rank limitation:849235.7938453271
+SVD(XW) Middlebias with rank limitation:0.16641666293944254
+SVD(XW) Average bias with rank limitation::14.147884922953855
+
+|X * hatW - X * W| middle compared bias:0.16641666295991075
+
+---------Module name:model.layers.3.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[1.0797e+06 3.0236e+05 2.7305e+05 ... 2.0550e-01 1.7951e-01 2.6323e-08]
+SVD(XW) Max bias with rank limitation:7341766.479037948
+SVD(XW) Middlebias with rank limitation:0.3021711402661969
+SVD(XW) Average bias with rank limitation::5.084940015125385
+
+|X * hatW - X * W| middle compared bias:0.3021711404169624
+
+---------Module name:model.layers.3.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[3.9512e+04 3.1613e+03 1.8401e+03 ... 1.5806e-03 1.5406e-03 1.5242e-03]
+SVD(XW) Max bias with rank limitation:20078720.20910521
+SVD(XW) Middlebias with rank limitation:0.5458075461993704
+SVD(XW) Average bias with rank limitation::5.192833321807356
+
+|X * hatW - X * W| middle compared bias:0.5458074730204792
+
+---------Module name:model.layers.3.mlp.up_proj---------
+rank of X.T * X:4096
+values:[8.6623e+05 1.6710e+05 1.3973e+05 ... 1.7791e-08 3.8331e-09 2.2820e-09]
+SVD(XW) Max bias with rank limitation:19566712.181935184
+SVD(XW) Middlebias with rank limitation:0.6311942616978411
+SVD(XW) Average bias with rank limitation::3.866826893599679
+
+|X * hatW - X * W| middle compared bias:0.6311942616907671
+
+---------Module name:model.layers.3.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[8.6623e+05 1.6710e+05 1.3973e+05 ... 1.7791e-08 3.8331e-09 2.2820e-09]
+SVD(XW) Max bias with rank limitation:68315021.97213252
+SVD(XW) Middlebias with rank limitation:0.4325967788831101
+SVD(XW) Average bias with rank limitation::3.948377418455331
+
+|X * hatW - X * W| middle compared bias:0.43259677160294185
+
+---------Module name:model.layers.3.mlp.down_proj---------
+rank of X.T * X:14336
+values:[1.0453e+05 2.9355e+03 2.1507e+03 ... 7.7502e-18 2.6238e-18 1.9043e-18]
+SVD(XW) Max bias with rank limitation:8245878.187720706
+SVD(XW) Middlebias with rank limitation:0.6209746024097972
+SVD(XW) Average bias with rank limitation::3.02697841176357
+
+|X * hatW - X * W| middle compared bias:0.620974578737777
+
+---------Module name:model.layers.4.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[1.1219e+06 3.1238e+05 2.5106e+05 ... 6.9167e-01 6.2628e-01 6.3852e-08]
+SVD(XW) Max bias with rank limitation:56188792.65430424
+SVD(XW) Middlebias with rank limitation:0.14119534910450848
+SVD(XW) Average bias with rank limitation::3.5919051498788797
+
+|X * hatW - X * W| middle compared bias:0.14119534911072462
+
+---------Module name:model.layers.4.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[1.1219e+06 3.1238e+05 2.5106e+05 ... 6.9167e-01 6.2628e-01 6.3852e-08]
+SVD(XW) Max bias with rank limitation:1913420.9520825744
+SVD(XW) Middlebias with rank limitation:0.1594612764304492
+SVD(XW) Average bias with rank limitation::7.151580610763321
+
+|X * hatW - X * W| middle compared bias:0.15946127638183094
+
+---------Module name:model.layers.4.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[1.1219e+06 3.1238e+05 2.5106e+05 ... 6.9167e-01 6.2628e-01 6.3852e-08]
+SVD(XW) Max bias with rank limitation:1235112.2438065663
+SVD(XW) Middlebias with rank limitation:0.2973041234647332
+SVD(XW) Average bias with rank limitation::27.22178819767149
+
+|X * hatW - X * W| middle compared bias:0.2973041234382228
+
+---------Module name:model.layers.4.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[5.0222e+04 7.1110e+03 3.0826e+03 ... 6.4539e-04 6.2984e-04 5.6938e-04]
+SVD(XW) Max bias with rank limitation:19370945.47898432
+SVD(XW) Middlebias with rank limitation:0.5374496428795471
+SVD(XW) Average bias with rank limitation::4.869354202375388
+
+|X * hatW - X * W| middle compared bias:0.5374476432649702
+
+---------Module name:model.layers.4.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.0997e+06 2.3472e+05 1.8498e+05 ... 9.7513e-07 3.6350e-07 2.1838e-08]
+SVD(XW) Max bias with rank limitation:41708542.84664809
+SVD(XW) Middlebias with rank limitation:0.6429805301384643
+SVD(XW) Average bias with rank limitation::4.133415102845286
+
+|X * hatW - X * W| middle compared bias:0.6429805310283458
+
+---------Module name:model.layers.4.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.0997e+06 2.3472e+05 1.8498e+05 ... 9.7513e-07 3.6350e-07 2.1838e-08]
+SVD(XW) Max bias with rank limitation:165011495.2998004
+SVD(XW) Middlebias with rank limitation:0.37731523754644825
+SVD(XW) Average bias with rank limitation::4.773785468759378
+
+|X * hatW - X * W| middle compared bias:0.3773152359873764
+
+---------Module name:model.layers.4.mlp.down_proj---------
+rank of X.T * X:14336
+values:[7.5765e+04 5.9547e+03 4.4643e+03 ... 1.5914e-17 7.0678e-18 8.4201e-23]
+SVD(XW) Max bias with rank limitation:7397598.967368226
+SVD(XW) Middlebias with rank limitation:0.7152785864829921
+SVD(XW) Average bias with rank limitation::3.415242801407634
+
+|X * hatW - X * W| middle compared bias:0.7152791342357772
+
+---------Module name:model.layers.5.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[1.4334e+06 4.5039e+05 3.3448e+05 ... 1.2632e+00 8.8328e-01 7.0551e-01]
+SVD(XW) Max bias with rank limitation:9366530.578509672
+SVD(XW) Middlebias with rank limitation:0.1502722501647678
+SVD(XW) Average bias with rank limitation::2.4970625920153746
+
+|X * hatW - X * W| middle compared bias:0.15027225016517287
+
+---------Module name:model.layers.5.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[1.4334e+06 4.5039e+05 3.3448e+05 ... 1.2632e+00 8.8328e-01 7.0551e-01]
+SVD(XW) Max bias with rank limitation:4880024.828109031
+SVD(XW) Middlebias with rank limitation:0.1670307639546809
+SVD(XW) Average bias with rank limitation::7.154653810198044
+
+|X * hatW - X * W| middle compared bias:0.16703076395847866
+
+---------Module name:model.layers.5.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[1.4334e+06 4.5039e+05 3.3448e+05 ... 1.2632e+00 8.8328e-01 7.0551e-01]
+SVD(XW) Max bias with rank limitation:4988195.783232682
+SVD(XW) Middlebias with rank limitation:0.3365556268480526
+SVD(XW) Average bias with rank limitation::4.056513205512818
+
+|X * hatW - X * W| middle compared bias:0.33655562684802987
+
+---------Module name:model.layers.5.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[5.1664e+04 1.4380e+04 4.0919e+03 ... 9.0252e-06 8.2470e-06 6.5851e-06]
+SVD(XW) Max bias with rank limitation:20810315.369740687
+SVD(XW) Middlebias with rank limitation:0.4895933825714903
+SVD(XW) Average bias with rank limitation::4.212475032379152
+
+|X * hatW - X * W| middle compared bias:0.4895929364840978
+
+---------Module name:model.layers.5.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.3010e+06 3.3406e+05 2.1011e+05 ... 1.0017e+00 1.8499e-07 1.6427e-08]
+SVD(XW) Max bias with rank limitation:35651063.77806743
+SVD(XW) Middlebias with rank limitation:0.6297049150194555
+SVD(XW) Average bias with rank limitation::5.234925337836577
+
+|X * hatW - X * W| middle compared bias:0.6297049149925963
+
+---------Module name:model.layers.5.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.3010e+06 3.3406e+05 2.1011e+05 ... 1.0017e+00 1.8499e-07 1.6427e-08]
+SVD(XW) Max bias with rank limitation:993635241.4328063
+SVD(XW) Middlebias with rank limitation:0.3349721088850347
+SVD(XW) Average bias with rank limitation::10.185669690555363
+
+|X * hatW - X * W| middle compared bias:0.3349721089022235
+
+---------Module name:model.layers.5.mlp.down_proj---------
+rank of X.T * X:14336
+values:[1.3410e+05 9.0710e+03 6.1934e+03 ... 3.3494e-17 1.6573e-17 2.0069e-19]
+SVD(XW) Max bias with rank limitation:1565476.8711847602
+SVD(XW) Middlebias with rank limitation:0.693714365948409
+SVD(XW) Average bias with rank limitation::3.3733346186484807
+
+|X * hatW - X * W| middle compared bias:0.6937143649178493
+
+---------Module name:model.layers.6.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[1.5423e+06 4.9184e+05 3.1044e+05 ... 1.4066e+00 9.5761e-01 7.8211e-01]
+SVD(XW) Max bias with rank limitation:5042778.412173662
+SVD(XW) Middlebias with rank limitation:0.1672606217107017
+SVD(XW) Average bias with rank limitation::2.4528354006445965
+
+|X * hatW - X * W| middle compared bias:0.16726062171118222
+
+---------Module name:model.layers.6.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[1.5423e+06 4.9184e+05 3.1044e+05 ... 1.4066e+00 9.5761e-01 7.8211e-01]
+SVD(XW) Max bias with rank limitation:2078667.0147615517
+SVD(XW) Middlebias with rank limitation:0.17870122049388304
+SVD(XW) Average bias with rank limitation::5.43016783053506
+
+|X * hatW - X * W| middle compared bias:0.17870122049376405
+
+---------Module name:model.layers.6.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[1.5423e+06 4.9184e+05 3.1044e+05 ... 1.4066e+00 9.5761e-01 7.8211e-01]
+SVD(XW) Max bias with rank limitation:2989318.9664616077
+SVD(XW) Middlebias with rank limitation:0.3461639879939651
+SVD(XW) Average bias with rank limitation::4.4486742405584945
+
+|X * hatW - X * W| middle compared bias:0.34616398798507336
+
+---------Module name:model.layers.6.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[5.3891e+04 2.1841e+04 6.2302e+03 ... 1.6138e-03 1.5433e-03 1.4478e-03]
+SVD(XW) Max bias with rank limitation:7278820.221618858
+SVD(XW) Middlebias with rank limitation:0.5090111616084303
+SVD(XW) Average bias with rank limitation::4.471996908059292
+
+|X * hatW - X * W| middle compared bias:0.509010566958725
+
+---------Module name:model.layers.6.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.4057e+06 3.9025e+05 2.6128e+05 ... 1.5137e+00 1.4456e-07 5.3000e-10]
+SVD(XW) Max bias with rank limitation:46383469.6615528
+SVD(XW) Middlebias with rank limitation:0.6570850382009442
+SVD(XW) Average bias with rank limitation::4.300011821197898
+
+|X * hatW - X * W| middle compared bias:0.657085038975097
+
+---------Module name:model.layers.6.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.4057e+06 3.9025e+05 2.6128e+05 ... 1.5137e+00 1.4456e-07 5.3000e-10]
+SVD(XW) Max bias with rank limitation:29023450.156286255
+SVD(XW) Middlebias with rank limitation:0.3397713209269002
+SVD(XW) Average bias with rank limitation::3.558310415856417
+
+|X * hatW - X * W| middle compared bias:0.33977132113013153
+
+---------Module name:model.layers.6.mlp.down_proj---------
+rank of X.T * X:14336
+values:[1.3225e+05 1.4019e+04 9.0116e+03 ... 4.0251e-17 3.7093e-18 5.2273e-19]
+SVD(XW) Max bias with rank limitation:4792831.191605563
+SVD(XW) Middlebias with rank limitation:0.6906066248804753
+SVD(XW) Average bias with rank limitation::3.668162812849312
+
+|X * hatW - X * W| middle compared bias:0.6906068650785804
+
+---------Module name:model.layers.7.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[1.6718e+06 5.3479e+05 3.0745e+05 ... 1.4211e+00 8.9545e-01 7.3322e-01]
+SVD(XW) Max bias with rank limitation:19388121.201784387
+SVD(XW) Middlebias with rank limitation:0.16881459610179603
+SVD(XW) Average bias with rank limitation::2.6438266497368605
+
+|X * hatW - X * W| middle compared bias:0.16881459610098704
+
+---------Module name:model.layers.7.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[1.6718e+06 5.3479e+05 3.0745e+05 ... 1.4211e+00 8.9545e-01 7.3322e-01]
+SVD(XW) Max bias with rank limitation:3479191.505441495
+SVD(XW) Middlebias with rank limitation:0.19199978583714145
+SVD(XW) Average bias with rank limitation::6.092539524829641
+
+|X * hatW - X * W| middle compared bias:0.1919997858367778
+
+---------Module name:model.layers.7.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[1.6718e+06 5.3479e+05 3.0745e+05 ... 1.4211e+00 8.9545e-01 7.3322e-01]
+SVD(XW) Max bias with rank limitation:511850.10079724423
+SVD(XW) Middlebias with rank limitation:0.33352053575430474
+SVD(XW) Average bias with rank limitation::3.2715877534428155
+
+|X * hatW - X * W| middle compared bias:0.33352053575345025
+
+---------Module name:model.layers.7.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[6.4777e+04 4.5234e+04 8.7435e+03 ... 2.3840e-03 1.9348e-03 1.8312e-03]
+SVD(XW) Max bias with rank limitation:11469113.185125092
+SVD(XW) Middlebias with rank limitation:0.5191691930201575
+SVD(XW) Average bias with rank limitation::4.19949452851773
+
+|X * hatW - X * W| middle compared bias:0.5191676203646779
+
+---------Module name:model.layers.7.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.3345e+06 4.4273e+05 2.5947e+05 ... 1.8389e+00 1.7950e+00 1.4567e+00]
+SVD(XW) Max bias with rank limitation:50452435.600360215
+SVD(XW) Middlebias with rank limitation:0.6591600893724635
+SVD(XW) Average bias with rank limitation::4.334173202843038
+
+|X * hatW - X * W| middle compared bias:0.6591600893736236
+
+---------Module name:model.layers.7.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.3345e+06 4.4273e+05 2.5947e+05 ... 1.8389e+00 1.7950e+00 1.4567e+00]
+SVD(XW) Max bias with rank limitation:20667257.026792992
+SVD(XW) Middlebias with rank limitation:0.3845883480090502
+SVD(XW) Average bias with rank limitation::4.518825414297299
+
+|X * hatW - X * W| middle compared bias:0.38458834800925845
+
+---------Module name:model.layers.7.mlp.down_proj---------
+rank of X.T * X:14336
+values:[1.0845e+05 1.3039e+04 9.8287e+03 ... 3.1119e-17 1.4457e-17 1.2638e-17]
+SVD(XW) Max bias with rank limitation:4333664.2553667575
+SVD(XW) Middlebias with rank limitation:0.7305494349620649
+SVD(XW) Average bias with rank limitation::3.8325404498780014
+
+|X * hatW - X * W| middle compared bias:0.7305484646118363
+
+---------Module name:model.layers.8.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.0436e+06 6.4880e+05 3.5287e+05 ... 1.6133e+00 1.3906e+00 1.2860e+00]
+SVD(XW) Max bias with rank limitation:15959743.213564858
+SVD(XW) Middlebias with rank limitation:0.17003972299806658
+SVD(XW) Average bias with rank limitation::2.8029534233396127
+
+|X * hatW - X * W| middle compared bias:0.17003972299742554
+
+---------Module name:model.layers.8.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.0436e+06 6.4880e+05 3.5287e+05 ... 1.6133e+00 1.3906e+00 1.2860e+00]
+SVD(XW) Max bias with rank limitation:990335.6103581293
+SVD(XW) Middlebias with rank limitation:0.19602116673261816
+SVD(XW) Average bias with rank limitation::4.705040969437374
+
+|X * hatW - X * W| middle compared bias:0.19602116673172582
+
+---------Module name:model.layers.8.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.0436e+06 6.4880e+05 3.5287e+05 ... 1.6133e+00 1.3906e+00 1.2860e+00]
+SVD(XW) Max bias with rank limitation:2293199.288617218
+SVD(XW) Middlebias with rank limitation:0.31048933419582275
+SVD(XW) Average bias with rank limitation::2.895207814384028
+
+|X * hatW - X * W| middle compared bias:0.3104893341950712
+
+---------Module name:model.layers.8.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[8.5737e+04 5.2928e+04 8.2134e+03 ... 1.6735e-03 1.5924e-03 1.1440e-03]
+SVD(XW) Max bias with rank limitation:21661949.922754988
+SVD(XW) Middlebias with rank limitation:0.5327040632149883
+SVD(XW) Average bias with rank limitation::4.92972098709858
+
+|X * hatW - X * W| middle compared bias:0.5327064123922749
+
+---------Module name:model.layers.8.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.2796e+06 4.7395e+05 2.8556e+05 ... 1.8465e+00 1.3233e+00 2.2200e-06]
+SVD(XW) Max bias with rank limitation:266162077.43918476
+SVD(XW) Middlebias with rank limitation:0.6386492528837509
+SVD(XW) Average bias with rank limitation::5.520213669303267
+
+|X * hatW - X * W| middle compared bias:0.6386492529911219
+
+---------Module name:model.layers.8.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.2796e+06 4.7395e+05 2.8556e+05 ... 1.8465e+00 1.3233e+00 2.2200e-06]
+SVD(XW) Max bias with rank limitation:17423988.457015645
+SVD(XW) Middlebias with rank limitation:0.3779662942793765
+SVD(XW) Average bias with rank limitation::3.8569863980860735
+
+|X * hatW - X * W| middle compared bias:0.3779662940105397
+
+---------Module name:model.layers.8.mlp.down_proj---------
+rank of X.T * X:14336
+values:[1.1864e+05 1.4954e+04 1.0269e+04 ... 2.5887e-17 1.5006e-17 1.8585e-18]
+SVD(XW) Max bias with rank limitation:12214594.594982918
+SVD(XW) Middlebias with rank limitation:0.7241329392388101
+SVD(XW) Average bias with rank limitation::4.384288499937125
+
+|X * hatW - X * W| middle compared bias:0.7241346258366229
+
+---------Module name:model.layers.9.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.1789e+06 6.5968e+05 3.2439e+05 ... 1.6384e+00 1.5306e+00 1.4347e+00]
+SVD(XW) Max bias with rank limitation:3258517.6062600105
+SVD(XW) Middlebias with rank limitation:0.1662207868774886
+SVD(XW) Average bias with rank limitation::2.9696368006410028
+
+|X * hatW - X * W| middle compared bias:0.16622078687594202
+
+---------Module name:model.layers.9.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.1789e+06 6.5968e+05 3.2439e+05 ... 1.6384e+00 1.5306e+00 1.4347e+00]
+SVD(XW) Max bias with rank limitation:3540328.5767986965
+SVD(XW) Middlebias with rank limitation:0.1954628932858394
+SVD(XW) Average bias with rank limitation::5.83886510520687
+
+|X * hatW - X * W| middle compared bias:0.1954628932858109
+
+---------Module name:model.layers.9.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.1789e+06 6.5968e+05 3.2439e+05 ... 1.6384e+00 1.5306e+00 1.4347e+00]
+SVD(XW) Max bias with rank limitation:163081030.81195688
+SVD(XW) Middlebias with rank limitation:0.320078474245207
+SVD(XW) Average bias with rank limitation::16.161755808998723
+
+|X * hatW - X * W| middle compared bias:0.32007847424730673
+
+---------Module name:model.layers.9.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[8.5305e+04 6.3927e+04 1.0533e+04 ... 3.5540e-03 3.3858e-03 3.1485e-03]
+SVD(XW) Max bias with rank limitation:7100593.043792345
+SVD(XW) Middlebias with rank limitation:0.4999631175927387
+SVD(XW) Average bias with rank limitation::4.00522949131881
+
+|X * hatW - X * W| middle compared bias:0.4999626732545296
+
+---------Module name:model.layers.9.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.1310e+06 5.2285e+05 2.8879e+05 ... 1.8104e+00 1.6560e+00 1.5948e+00]
+SVD(XW) Max bias with rank limitation:17822399.96460184
+SVD(XW) Middlebias with rank limitation:0.6277471906805152
+SVD(XW) Average bias with rank limitation::4.337212888866249
+
+|X * hatW - X * W| middle compared bias:0.627747190687302
+
+---------Module name:model.layers.9.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.1310e+06 5.2285e+05 2.8879e+05 ... 1.8104e+00 1.6560e+00 1.5948e+00]
+SVD(XW) Max bias with rank limitation:18965907.02927875
+SVD(XW) Middlebias with rank limitation:0.3648128187293965
+SVD(XW) Average bias with rank limitation::3.3752415687134123
+
+|X * hatW - X * W| middle compared bias:0.3648128187290848
+
+---------Module name:model.layers.9.mlp.down_proj---------
+rank of X.T * X:14336
+values:[7.9454e+04 1.6582e+04 1.1051e+04 ... 1.6684e-17 1.2069e-17 2.9920e-18]
+SVD(XW) Max bias with rank limitation:3484532.811754801
+SVD(XW) Middlebias with rank limitation:0.7359159690744389
+SVD(XW) Average bias with rank limitation::3.5549189021338066
+
+|X * hatW - X * W| middle compared bias:0.7359155329148065
+
+---------Module name:model.layers.10.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.5414e+06 8.0831e+05 4.1733e+05 ... 1.7010e+00 1.4321e+00 1.2106e+00]
+SVD(XW) Max bias with rank limitation:4856562.535924151
+SVD(XW) Middlebias with rank limitation:0.16650243422004102
+SVD(XW) Average bias with rank limitation::2.887727101549616
+
+|X * hatW - X * W| middle compared bias:0.1665024342216622
+
+---------Module name:model.layers.10.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.5414e+06 8.0831e+05 4.1733e+05 ... 1.7010e+00 1.4321e+00 1.2106e+00]
+SVD(XW) Max bias with rank limitation:1697025.675184149
+SVD(XW) Middlebias with rank limitation:0.18994301493336196
+SVD(XW) Average bias with rank limitation::7.657653087008068
+
+|X * hatW - X * W| middle compared bias:0.18994301493765917
+
+---------Module name:model.layers.10.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.5414e+06 8.0831e+05 4.1733e+05 ... 1.7010e+00 1.4321e+00 1.2106e+00]
+SVD(XW) Max bias with rank limitation:1610237.1086889214
+SVD(XW) Middlebias with rank limitation:0.297227127196656
+SVD(XW) Average bias with rank limitation::3.407117113078586
+
+|X * hatW - X * W| middle compared bias:0.297227127197405
+
+---------Module name:model.layers.10.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[8.3998e+04 6.8917e+04 9.3379e+03 ... 4.0127e-04 3.6545e-04 2.9030e-04]
+SVD(XW) Max bias with rank limitation:62859295.86321246
+SVD(XW) Middlebias with rank limitation:0.4704130243627564
+SVD(XW) Average bias with rank limitation::5.940450906518663
+
+|X * hatW - X * W| middle compared bias:0.47040355027279657
+
+---------Module name:model.layers.10.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.1042e+06 5.4662e+05 2.9336e+05 ... 1.8059e+00 1.7627e+00 1.5551e+00]
+SVD(XW) Max bias with rank limitation:21383110.329347473
+SVD(XW) Middlebias with rank limitation:0.6064278568631458
+SVD(XW) Average bias with rank limitation::4.460058960095752
+
+|X * hatW - X * W| middle compared bias:0.6064278568624513
+
+---------Module name:model.layers.10.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.1042e+06 5.4662e+05 2.9336e+05 ... 1.8059e+00 1.7627e+00 1.5551e+00]
+SVD(XW) Max bias with rank limitation:13523453.690661324
+SVD(XW) Middlebias with rank limitation:0.35249069655340903
+SVD(XW) Average bias with rank limitation::4.498140552598235
+
+|X * hatW - X * W| middle compared bias:0.3524906965531624
+
+---------Module name:model.layers.10.mlp.down_proj---------
+rank of X.T * X:14336
+values:[6.9221e+04 2.9394e+04 1.7053e+04 ... 1.8342e-17 8.6134e-18 2.9545e-18]
+SVD(XW) Max bias with rank limitation:7568194.9026426505
+SVD(XW) Middlebias with rank limitation:0.6270437280802652
+SVD(XW) Average bias with rank limitation::3.9767215877057573
+
+|X * hatW - X * W| middle compared bias:0.6270434730624156
+
+---------Module name:model.layers.11.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.6074e+06 7.8645e+05 4.1509e+05 ... 1.8054e+00 1.7200e+00 1.5647e+00]
+SVD(XW) Max bias with rank limitation:4218554.125879108
+SVD(XW) Middlebias with rank limitation:0.16541301920557636
+SVD(XW) Average bias with rank limitation::2.1876046249481473
+
+|X * hatW - X * W| middle compared bias:0.16541301920379914
+
+---------Module name:model.layers.11.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.6074e+06 7.8645e+05 4.1509e+05 ... 1.8054e+00 1.7200e+00 1.5647e+00]
+SVD(XW) Max bias with rank limitation:22092532.36583356
+SVD(XW) Middlebias with rank limitation:0.21985356407489523
+SVD(XW) Average bias with rank limitation::8.244686740788833
+
+|X * hatW - X * W| middle compared bias:0.2198535640705499
+
+---------Module name:model.layers.11.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.6074e+06 7.8645e+05 4.1509e+05 ... 1.8054e+00 1.7200e+00 1.5647e+00]
+SVD(XW) Max bias with rank limitation:1246566.3539140928
+SVD(XW) Middlebias with rank limitation:0.3364548423989234
+SVD(XW) Average bias with rank limitation::3.2438492834228496
+
+|X * hatW - X * W| middle compared bias:0.33645484239920975
+
+---------Module name:model.layers.11.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[1.3274e+05 8.9227e+04 1.0964e+04 ... 7.3303e-04 7.1260e-04 6.6758e-04]
+SVD(XW) Max bias with rank limitation:52669072.66812962
+SVD(XW) Middlebias with rank limitation:0.44119086589273687
+SVD(XW) Average bias with rank limitation::5.105981639527155
+
+|X * hatW - X * W| middle compared bias:0.44119086736080504
+
+---------Module name:model.layers.11.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.0443e+06 6.3229e+05 2.9331e+05 ... 1.9105e+00 1.8794e+00 1.7353e+00]
+SVD(XW) Max bias with rank limitation:13173076.337523527
+SVD(XW) Middlebias with rank limitation:0.5459038152988612
+SVD(XW) Average bias with rank limitation::4.127037763775437
+
+|X * hatW - X * W| middle compared bias:0.5459038152978929
+
+---------Module name:model.layers.11.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.0443e+06 6.3229e+05 2.9331e+05 ... 1.9105e+00 1.8794e+00 1.7353e+00]
+SVD(XW) Max bias with rank limitation:51268332.44666543
+SVD(XW) Middlebias with rank limitation:0.3520415411628328
+SVD(XW) Average bias with rank limitation::3.7634086434658154
+
+|X * hatW - X * W| middle compared bias:0.3520415411631548
+
+---------Module name:model.layers.11.mlp.down_proj---------
+rank of X.T * X:14336
+values:[5.8102e+04 1.8531e+04 1.0132e+04 ... 2.1485e-17 1.0870e-17 5.8586e-18]
+SVD(XW) Max bias with rank limitation:9346338.60505759
+SVD(XW) Middlebias with rank limitation:0.659246524024549
+SVD(XW) Average bias with rank limitation::4.591642553767457
+
+|X * hatW - X * W| middle compared bias:0.6592465982198836
+
+---------Module name:model.layers.12.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.3366e+06 6.2670e+05 3.7120e+05 ... 1.3608e+00 1.2508e+00 1.1380e+00]
+SVD(XW) Max bias with rank limitation:14196603.765095059
+SVD(XW) Middlebias with rank limitation:0.15955321544054507
+SVD(XW) Average bias with rank limitation::2.877748501729169
+
+|X * hatW - X * W| middle compared bias:0.15955321544068155
+
+---------Module name:model.layers.12.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.3366e+06 6.2670e+05 3.7120e+05 ... 1.3608e+00 1.2508e+00 1.1380e+00]
+SVD(XW) Max bias with rank limitation:2428221.6643454027
+SVD(XW) Middlebias with rank limitation:0.19095300133730814
+SVD(XW) Average bias with rank limitation::4.308885937803244
+
+|X * hatW - X * W| middle compared bias:0.19095300133671972
+
+---------Module name:model.layers.12.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.3366e+06 6.2670e+05 3.7120e+05 ... 1.3608e+00 1.2508e+00 1.1380e+00]
+SVD(XW) Max bias with rank limitation:1306111.3253952374
+SVD(XW) Middlebias with rank limitation:0.32726945584750344
+SVD(XW) Average bias with rank limitation::9.631645582640358
+
+|X * hatW - X * W| middle compared bias:0.3272694558477778
+
+---------Module name:model.layers.12.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[7.7245e+04 6.6292e+04 9.3846e+03 ... 4.4412e-03 3.3637e-03 2.9835e-03]
+SVD(XW) Max bias with rank limitation:12026696.47005293
+SVD(XW) Middlebias with rank limitation:0.5172499870328358
+SVD(XW) Average bias with rank limitation::4.135568448141751
+
+|X * hatW - X * W| middle compared bias:0.5172509615315469
+
+---------Module name:model.layers.12.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.1496e+06 6.1759e+05 2.8976e+05 ... 1.9234e+00 1.9056e+00 1.8677e+00]
+SVD(XW) Max bias with rank limitation:8739490.932195889
+SVD(XW) Middlebias with rank limitation:0.5469756024579985
+SVD(XW) Average bias with rank limitation::4.453235407278549
+
+|X * hatW - X * W| middle compared bias:0.5469756024573591
+
+---------Module name:model.layers.12.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.1496e+06 6.1759e+05 2.8976e+05 ... 1.9234e+00 1.9056e+00 1.8677e+00]
+SVD(XW) Max bias with rank limitation:16297057.42102029
+SVD(XW) Middlebias with rank limitation:0.3648471189487269
+SVD(XW) Average bias with rank limitation::4.134809984409399
+
+|X * hatW - X * W| middle compared bias:0.3648471189497272
+
+---------Module name:model.layers.12.mlp.down_proj---------
+rank of X.T * X:14336
+values:[6.4265e+04 2.0613e+04 1.1112e+04 ... 1.9770e-17 1.2266e-17 5.5638e-18]
+SVD(XW) Max bias with rank limitation:2947654.277934231
+SVD(XW) Middlebias with rank limitation:0.7043142537948262
+SVD(XW) Average bias with rank limitation::4.8283739763098295
+
+|X * hatW - X * W| middle compared bias:0.7043144988381613
+
+---------Module name:model.layers.13.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[3.1613e+06 8.2224e+05 4.3018e+05 ... 1.4674e+00 1.3073e+00 1.1929e+00]
+SVD(XW) Max bias with rank limitation:82576452.4681168
+SVD(XW) Middlebias with rank limitation:0.17725202071493157
+SVD(XW) Average bias with rank limitation::3.702174894665582
+
+|X * hatW - X * W| middle compared bias:0.17725202071614954
+
+---------Module name:model.layers.13.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[3.1613e+06 8.2224e+05 4.3018e+05 ... 1.4674e+00 1.3073e+00 1.1929e+00]
+SVD(XW) Max bias with rank limitation:950486.2496818409
+SVD(XW) Middlebias with rank limitation:0.2136318453457943
+SVD(XW) Average bias with rank limitation::4.133067979597797
+
+|X * hatW - X * W| middle compared bias:0.21363184534586038
+
+---------Module name:model.layers.13.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[3.1613e+06 8.2224e+05 4.3018e+05 ... 1.4674e+00 1.3073e+00 1.1929e+00]
+SVD(XW) Max bias with rank limitation:1898691.141339956
+SVD(XW) Middlebias with rank limitation:0.3343073514239797
+SVD(XW) Average bias with rank limitation::4.503219729964694
+
+|X * hatW - X * W| middle compared bias:0.3343073514237299
+
+---------Module name:model.layers.13.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[1.0102e+05 7.5991e+04 8.0934e+03 ... 1.2647e-03 1.2070e-03 1.1555e-03]
+SVD(XW) Max bias with rank limitation:14548775.658104429
+SVD(XW) Middlebias with rank limitation:0.4892048541177755
+SVD(XW) Average bias with rank limitation::5.298993528974844
+
+|X * hatW - X * W| middle compared bias:0.48920382780322325
+
+---------Module name:model.layers.13.mlp.up_proj---------
+rank of X.T * X:4096
+values:[9.5912e+05 6.6480e+05 2.9919e+05 ... 1.8660e+00 1.8324e+00 1.7702e+00]
+SVD(XW) Max bias with rank limitation:120561313.499289
+SVD(XW) Middlebias with rank limitation:0.5826441984966528
+SVD(XW) Average bias with rank limitation::10.069616431056227
+
+|X * hatW - X * W| middle compared bias:0.5826441984960224
+
+---------Module name:model.layers.13.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[9.5912e+05 6.6480e+05 2.9919e+05 ... 1.8660e+00 1.8324e+00 1.7702e+00]
+SVD(XW) Max bias with rank limitation:31970418.096752346
+SVD(XW) Middlebias with rank limitation:0.3892721005357954
+SVD(XW) Average bias with rank limitation::15.497812990320481
+
+|X * hatW - X * W| middle compared bias:0.3892721005381663
+
+---------Module name:model.layers.13.mlp.down_proj---------
+rank of X.T * X:14336
+values:[5.2667e+04 2.1701e+04 1.2597e+04 ... 1.5721e-17 6.0648e-18 2.8417e-18]
+SVD(XW) Max bias with rank limitation:2419911.551052395
+SVD(XW) Middlebias with rank limitation:0.7249385104376551
+SVD(XW) Average bias with rank limitation::4.209932425360753
+
+|X * hatW - X * W| middle compared bias:0.7249389639133592
+
+---------Module name:model.layers.14.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[3.4897e+06 9.7044e+05 4.9104e+05 ... 1.7874e+00 1.5949e+00 1.4042e+00]
+SVD(XW) Max bias with rank limitation:16040188.755986655
+SVD(XW) Middlebias with rank limitation:0.17364095124960316
+SVD(XW) Average bias with rank limitation::2.9239804285530053
+
+|X * hatW - X * W| middle compared bias:0.1736409512486767
+
+---------Module name:model.layers.14.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[3.4897e+06 9.7044e+05 4.9104e+05 ... 1.7874e+00 1.5949e+00 1.4042e+00]
+SVD(XW) Max bias with rank limitation:2725485.5300391195
+SVD(XW) Middlebias with rank limitation:0.22281640928011354
+SVD(XW) Average bias with rank limitation::4.913443438110233
+
+|X * hatW - X * W| middle compared bias:0.22281640928444255
+
+---------Module name:model.layers.14.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[3.4897e+06 9.7044e+05 4.9104e+05 ... 1.7874e+00 1.5949e+00 1.4042e+00]
+SVD(XW) Max bias with rank limitation:802033.7519250318
+SVD(XW) Middlebias with rank limitation:0.3499947087333387
+SVD(XW) Average bias with rank limitation::8.93209936489602
+
+|X * hatW - X * W| middle compared bias:0.34999470873366767
+
+---------Module name:model.layers.14.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[8.3026e+04 7.3035e+04 1.1850e+04 ... 4.6819e-03 4.5989e-03 3.9881e-03]
+SVD(XW) Max bias with rank limitation:4980788.505952423
+SVD(XW) Middlebias with rank limitation:0.532809180465053
+SVD(XW) Average bias with rank limitation::4.439298841581646
+
+|X * hatW - X * W| middle compared bias:0.532810551775886
+
+---------Module name:model.layers.14.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.1369e+06 7.1867e+05 3.2502e+05 ... 2.0370e+00 2.0289e+00 1.9552e+00]
+SVD(XW) Max bias with rank limitation:18144912.163676403
+SVD(XW) Middlebias with rank limitation:0.5952986168628324
+SVD(XW) Average bias with rank limitation::4.6415827195450055
+
+|X * hatW - X * W| middle compared bias:0.5952986168660933
+
+---------Module name:model.layers.14.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.1369e+06 7.1867e+05 3.2502e+05 ... 2.0370e+00 2.0289e+00 1.9552e+00]
+SVD(XW) Max bias with rank limitation:15055974.03106223
+SVD(XW) Middlebias with rank limitation:0.3472365312455913
+SVD(XW) Average bias with rank limitation::3.983702398606239
+
+|X * hatW - X * W| middle compared bias:0.34723653124248105
+
+---------Module name:model.layers.14.mlp.down_proj---------
+rank of X.T * X:14336
+values:[4.7460e+04 2.6319e+04 1.1551e+04 ... 2.9550e-17 8.9325e-18 1.7344e-19]
+SVD(XW) Max bias with rank limitation:13822252.080025474
+SVD(XW) Middlebias with rank limitation:0.741400338549808
+SVD(XW) Average bias with rank limitation::4.426513944053173
+
+|X * hatW - X * W| middle compared bias:0.7413996535624829
+
+---------Module name:model.layers.15.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.7939e+06 8.6295e+05 4.4899e+05 ... 1.8970e+00 1.5150e+00 1.3265e+00]
+SVD(XW) Max bias with rank limitation:5557898.323377163
+SVD(XW) Middlebias with rank limitation:0.16392335001934527
+SVD(XW) Average bias with rank limitation::2.23870077606214
+
+|X * hatW - X * W| middle compared bias:0.1639233500190902
+
+---------Module name:model.layers.15.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.7939e+06 8.6295e+05 4.4899e+05 ... 1.8970e+00 1.5150e+00 1.3265e+00]
+SVD(XW) Max bias with rank limitation:743489.9976752264
+SVD(XW) Middlebias with rank limitation:0.180336387311123
+SVD(XW) Average bias with rank limitation::6.705359351160069
+
+|X * hatW - X * W| middle compared bias:0.18033638731006743
+
+---------Module name:model.layers.15.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.7939e+06 8.6295e+05 4.4899e+05 ... 1.8970e+00 1.5150e+00 1.3265e+00]
+SVD(XW) Max bias with rank limitation:4343869.662439846
+SVD(XW) Middlebias with rank limitation:0.3465566995385143
+SVD(XW) Average bias with rank limitation::3.593055079176593
+
+|X * hatW - X * W| middle compared bias:0.34655669953835644
+
+---------Module name:model.layers.15.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[6.0930e+04 3.4518e+04 9.6061e+03 ... 1.6861e-04 1.6376e-04 1.3816e-04]
+SVD(XW) Max bias with rank limitation:10573813.934648445
+SVD(XW) Middlebias with rank limitation:0.5793756126341614
+SVD(XW) Average bias with rank limitation::5.044792222017874
+
+|X * hatW - X * W| middle compared bias:0.5793780982593361
+
+---------Module name:model.layers.15.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.1699e+06 6.9922e+05 3.3058e+05 ... 2.2476e+00 2.1527e+00 2.0654e+00]
+SVD(XW) Max bias with rank limitation:119888280.61913976
+SVD(XW) Middlebias with rank limitation:0.6169255484763585
+SVD(XW) Average bias with rank limitation::4.634642123723608
+
+|X * hatW - X * W| middle compared bias:0.6169255484819843
+
+---------Module name:model.layers.15.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.1699e+06 6.9922e+05 3.3058e+05 ... 2.2476e+00 2.1527e+00 2.0654e+00]
+SVD(XW) Max bias with rank limitation:362962129.2714242
+SVD(XW) Middlebias with rank limitation:0.326450656225596
+SVD(XW) Average bias with rank limitation::5.324736221417072
+
+|X * hatW - X * W| middle compared bias:0.3264506562252337
+
+---------Module name:model.layers.15.mlp.down_proj---------
+rank of X.T * X:14336
+values:[1.0593e+05 2.5865e+04 1.3700e+04 ... 2.9187e-17 1.4574e-17 3.0004e-19]
+SVD(XW) Max bias with rank limitation:11324545.520745313
+SVD(XW) Middlebias with rank limitation:0.700527537043813
+SVD(XW) Average bias with rank limitation::4.850263739971584
+
+|X * hatW - X * W| middle compared bias:0.7005275204482473
+
+---------Module name:model.layers.16.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[3.0625e+06 9.0275e+05 4.6863e+05 ... 1.7875e+00 1.0230e+00 9.1543e-01]
+SVD(XW) Max bias with rank limitation:2883849.310365272
+SVD(XW) Middlebias with rank limitation:0.16927512590006816
+SVD(XW) Average bias with rank limitation::2.3100876562415587
+
+|X * hatW - X * W| middle compared bias:0.16927512590103977
+
+---------Module name:model.layers.16.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[3.0625e+06 9.0275e+05 4.6863e+05 ... 1.7875e+00 1.0230e+00 9.1543e-01]
+SVD(XW) Max bias with rank limitation:5331712.128294485
+SVD(XW) Middlebias with rank limitation:0.19756082521889926
+SVD(XW) Average bias with rank limitation::4.13315799608141
+
+|X * hatW - X * W| middle compared bias:0.19756082521971524
+
+---------Module name:model.layers.16.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[3.0625e+06 9.0275e+05 4.6863e+05 ... 1.7875e+00 1.0230e+00 9.1543e-01]
+SVD(XW) Max bias with rank limitation:1381971.6749748618
+SVD(XW) Middlebias with rank limitation:0.3184384816258245
+SVD(XW) Average bias with rank limitation::2.6491862721671726
+
+|X * hatW - X * W| middle compared bias:0.31843848162675836
+
+---------Module name:model.layers.16.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[7.4867e+04 3.5664e+04 1.2424e+04 ... 3.1019e-04 2.8654e-04 2.2149e-04]
+SVD(XW) Max bias with rank limitation:5909584.799209934
+SVD(XW) Middlebias with rank limitation:0.5422230343659951
+SVD(XW) Average bias with rank limitation::4.651632873021629
+
+|X * hatW - X * W| middle compared bias:0.5422225280509676
+
+---------Module name:model.layers.16.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.1420e+06 6.5965e+05 3.3181e+05 ... 2.1050e+00 1.9986e+00 1.6652e+00]
+SVD(XW) Max bias with rank limitation:109282872.190057
+SVD(XW) Middlebias with rank limitation:0.6115921095321334
+SVD(XW) Average bias with rank limitation::5.583772010581543
+
+|X * hatW - X * W| middle compared bias:0.6115921095316542
+
+---------Module name:model.layers.16.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.1420e+06 6.5965e+05 3.3181e+05 ... 2.1050e+00 1.9986e+00 1.6652e+00]
+SVD(XW) Max bias with rank limitation:13271623.90724902
+SVD(XW) Middlebias with rank limitation:0.34027228096449846
+SVD(XW) Average bias with rank limitation::3.426200404318688
+
+|X * hatW - X * W| middle compared bias:0.3402722809637718
+
+---------Module name:model.layers.16.mlp.down_proj---------
+rank of X.T * X:14336
+values:[9.6353e+04 4.3892e+04 1.6142e+04 ... 3.7755e-17 2.7361e-17 2.4536e-18]
+SVD(XW) Max bias with rank limitation:13257428.377115775
+SVD(XW) Middlebias with rank limitation:0.7277117532607085
+SVD(XW) Average bias with rank limitation::4.1377379906509075
+
+|X * hatW - X * W| middle compared bias:0.727713011590488
+
+---------Module name:model.layers.17.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.6315e+06 7.9635e+05 4.4029e+05 ... 2.1046e+00 1.4446e+00 1.1918e+00]
+SVD(XW) Max bias with rank limitation:3086988.803432489
+SVD(XW) Middlebias with rank limitation:0.17427281613850332
+SVD(XW) Average bias with rank limitation::2.470949082398247
+
+|X * hatW - X * W| middle compared bias:0.17427281613649181
+
+---------Module name:model.layers.17.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.6315e+06 7.9635e+05 4.4029e+05 ... 2.1046e+00 1.4446e+00 1.1918e+00]
+SVD(XW) Max bias with rank limitation:7396644.267834798
+SVD(XW) Middlebias with rank limitation:0.21012952140661018
+SVD(XW) Average bias with rank limitation::8.815546819604599
+
+|X * hatW - X * W| middle compared bias:0.2101295214060609
+
+---------Module name:model.layers.17.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.6315e+06 7.9635e+05 4.4029e+05 ... 2.1046e+00 1.4446e+00 1.1918e+00]
+SVD(XW) Max bias with rank limitation:6995644.4053119505
+SVD(XW) Middlebias with rank limitation:0.3611272758573968
+SVD(XW) Average bias with rank limitation::3.5170728181123545
+
+|X * hatW - X * W| middle compared bias:0.3611272758557791
+
+---------Module name:model.layers.17.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[4.8697e+04 1.9120e+04 5.0517e+03 ... 3.6379e-04 3.4451e-04 2.7706e-04]
+SVD(XW) Max bias with rank limitation:181204127.7682208
+SVD(XW) Middlebias with rank limitation:0.58757491315753
+SVD(XW) Average bias with rank limitation::7.095778695218129
+
+|X * hatW - X * W| middle compared bias:0.5875747963270306
+
+---------Module name:model.layers.17.mlp.up_proj---------
+rank of X.T * X:4096
+values:[9.1723e+05 6.7573e+05 3.3106e+05 ... 2.3485e+00 2.1580e+00 1.8120e+00]
+SVD(XW) Max bias with rank limitation:48923020.02746065
+SVD(XW) Middlebias with rank limitation:0.6732293378454338
+SVD(XW) Average bias with rank limitation::5.194296718726935
+
+|X * hatW - X * W| middle compared bias:0.6732293378459746
+
+---------Module name:model.layers.17.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[9.1723e+05 6.7573e+05 3.3106e+05 ... 2.3485e+00 2.1580e+00 1.8120e+00]
+SVD(XW) Max bias with rank limitation:49027699.29554392
+SVD(XW) Middlebias with rank limitation:0.36739773057349817
+SVD(XW) Average bias with rank limitation::4.7364351025700815
+
+|X * hatW - X * W| middle compared bias:0.36739773057476927
+
+---------Module name:model.layers.17.mlp.down_proj---------
+rank of X.T * X:14336
+values:[6.7393e+04 3.9400e+04 1.6293e+04 ... 2.2794e-17 2.0538e-17 7.9295e-18]
+SVD(XW) Max bias with rank limitation:3721240.7031110157
+SVD(XW) Middlebias with rank limitation:0.7603682076899476
+SVD(XW) Average bias with rank limitation::4.149855057108988
+
+|X * hatW - X * W| middle compared bias:0.7603682961069002
+
+---------Module name:model.layers.18.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.5411e+06 8.2540e+05 4.6593e+05 ... 2.3718e+00 1.2494e+00 7.8223e-01]
+SVD(XW) Max bias with rank limitation:17808756.691701546
+SVD(XW) Middlebias with rank limitation:0.1869583858589629
+SVD(XW) Average bias with rank limitation::3.0067191025007487
+
+|X * hatW - X * W| middle compared bias:0.1869583858584818
+
+---------Module name:model.layers.18.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.5411e+06 8.2540e+05 4.6593e+05 ... 2.3718e+00 1.2494e+00 7.8223e-01]
+SVD(XW) Max bias with rank limitation:2427895.127627245
+SVD(XW) Middlebias with rank limitation:0.2173379258878381
+SVD(XW) Average bias with rank limitation::7.107114119979282
+
+|X * hatW - X * W| middle compared bias:0.21733792588750273
+
+---------Module name:model.layers.18.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.5411e+06 8.2540e+05 4.6593e+05 ... 2.3718e+00 1.2494e+00 7.8223e-01]
+SVD(XW) Max bias with rank limitation:886857.7588462518
+SVD(XW) Middlebias with rank limitation:0.3497609002817332
+SVD(XW) Average bias with rank limitation::2.7782113075827732
+
+|X * hatW - X * W| middle compared bias:0.34976090028201695
+
+---------Module name:model.layers.18.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[6.2165e+04 1.0886e+04 4.1681e+03 ... 2.8781e-03 2.7615e-03 2.5990e-03]
+SVD(XW) Max bias with rank limitation:7514572.740379481
+SVD(XW) Middlebias with rank limitation:0.5662531421623036
+SVD(XW) Average bias with rank limitation::4.206652848489286
+
+|X * hatW - X * W| middle compared bias:0.5662518138543442
+
+---------Module name:model.layers.18.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.3163e+06 6.3489e+05 3.1574e+05 ... 2.2494e+00 2.0934e+00 1.9276e+00]
+SVD(XW) Max bias with rank limitation:6580247.411026645
+SVD(XW) Middlebias with rank limitation:0.6559203688337364
+SVD(XW) Average bias with rank limitation::4.143336817998969
+
+|X * hatW - X * W| middle compared bias:0.655920368834131
+
+---------Module name:model.layers.18.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.3163e+06 6.3489e+05 3.1574e+05 ... 2.2494e+00 2.0934e+00 1.9276e+00]
+SVD(XW) Max bias with rank limitation:7577040.175236113
+SVD(XW) Middlebias with rank limitation:0.36758876567160953
+SVD(XW) Average bias with rank limitation::3.6924479273971125
+
+|X * hatW - X * W| middle compared bias:0.36758876567440235
+
+---------Module name:model.layers.18.mlp.down_proj---------
+rank of X.T * X:14336
+values:[3.0988e+05 3.0967e+04 1.4613e+04 ... 4.7199e-17 1.2647e-17 2.8829e-18]
+SVD(XW) Max bias with rank limitation:4930655.852790321
+SVD(XW) Middlebias with rank limitation:0.6952057853814574
+SVD(XW) Average bias with rank limitation::3.2316325695722634
+
+|X * hatW - X * W| middle compared bias:0.6952058279750586
+
+---------Module name:model.layers.19.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.4744e+06 7.7050e+05 4.4184e+05 ... 2.5852e+00 1.8872e+00 1.4816e+00]
+SVD(XW) Max bias with rank limitation:64012608.63201911
+SVD(XW) Middlebias with rank limitation:0.18861293374582816
+SVD(XW) Average bias with rank limitation::3.7603538959812917
+
+|X * hatW - X * W| middle compared bias:0.18861293375316956
+
+---------Module name:model.layers.19.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.4744e+06 7.7050e+05 4.4184e+05 ... 2.5852e+00 1.8872e+00 1.4816e+00]
+SVD(XW) Max bias with rank limitation:682362.3234752455
+SVD(XW) Middlebias with rank limitation:0.1992498792157457
+SVD(XW) Average bias with rank limitation::3.9368479140320396
+
+|X * hatW - X * W| middle compared bias:0.19924987922003845
+
+---------Module name:model.layers.19.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.4744e+06 7.7050e+05 4.4184e+05 ... 2.5852e+00 1.8872e+00 1.4816e+00]
+SVD(XW) Max bias with rank limitation:1019737.8479345551
+SVD(XW) Middlebias with rank limitation:0.36068899051242465
+SVD(XW) Average bias with rank limitation::2.8210708700412415
+
+|X * hatW - X * W| middle compared bias:0.3606889905134079
+
+---------Module name:model.layers.19.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[7.4301e+04 1.6135e+04 4.4665e+03 ... 1.1436e-04 1.0730e-04 1.0187e-04]
+SVD(XW) Max bias with rank limitation:11031942.569829782
+SVD(XW) Middlebias with rank limitation:0.4929071025050717
+SVD(XW) Average bias with rank limitation::3.8461908185741827
+
+|X * hatW - X * W| middle compared bias:0.4929121787910914
+
+---------Module name:model.layers.19.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.1495e+06 6.4023e+05 3.1299e+05 ... 2.0774e+00 1.7706e+00 1.6855e+00]
+SVD(XW) Max bias with rank limitation:13386870.225454615
+SVD(XW) Middlebias with rank limitation:0.6437514931661794
+SVD(XW) Average bias with rank limitation::3.8086235837981417
+
+|X * hatW - X * W| middle compared bias:0.6437514931661117
+
+---------Module name:model.layers.19.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.1495e+06 6.4023e+05 3.1299e+05 ... 2.0774e+00 1.7706e+00 1.6855e+00]
+SVD(XW) Max bias with rank limitation:7936151.100256062
+SVD(XW) Middlebias with rank limitation:0.3661271157527281
+SVD(XW) Average bias with rank limitation::3.7414069982858917
+
+|X * hatW - X * W| middle compared bias:0.36612711575352314
+
+---------Module name:model.layers.19.mlp.down_proj---------
+rank of X.T * X:14336
+values:[7.5715e+05 3.6091e+04 1.4500e+04 ... 1.9469e-17 8.0363e-18 1.8894e-18]
+SVD(XW) Max bias with rank limitation:9668592.546970198
+SVD(XW) Middlebias with rank limitation:0.6503024092490033
+SVD(XW) Average bias with rank limitation::2.750168221620637
+
+|X * hatW - X * W| middle compared bias:0.6503015671991361
+
+---------Module name:model.layers.20.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.7514e+06 8.6453e+05 4.6014e+05 ... 2.6552e+00 1.5675e+00 1.0729e+00]
+SVD(XW) Max bias with rank limitation:40222738.55344475
+SVD(XW) Middlebias with rank limitation:0.19761747216404574
+SVD(XW) Average bias with rank limitation::3.757630177143833
+
+|X * hatW - X * W| middle compared bias:0.19761747216420608
+
+---------Module name:model.layers.20.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.7514e+06 8.6453e+05 4.6014e+05 ... 2.6552e+00 1.5675e+00 1.0729e+00]
+SVD(XW) Max bias with rank limitation:1436052.4100754182
+SVD(XW) Middlebias with rank limitation:0.2035285604601617
+SVD(XW) Average bias with rank limitation::4.448567788020421
+
+|X * hatW - X * W| middle compared bias:0.20352856046096895
+
+---------Module name:model.layers.20.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.7514e+06 8.6453e+05 4.6014e+05 ... 2.6552e+00 1.5675e+00 1.0729e+00]
+SVD(XW) Max bias with rank limitation:4296531.860158794
+SVD(XW) Middlebias with rank limitation:0.30499497292726224
+SVD(XW) Average bias with rank limitation::3.406507217421663
+
+|X * hatW - X * W| middle compared bias:0.3049949729270592
+
+---------Module name:model.layers.20.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[8.6271e+04 4.2005e+04 1.0542e+04 ... 1.3526e-03 1.2919e-03 1.2480e-03]
+SVD(XW) Max bias with rank limitation:916397457.2118877
+SVD(XW) Middlebias with rank limitation:0.4872281819679895
+SVD(XW) Average bias with rank limitation::18.10121531960494
+
+|X * hatW - X * W| middle compared bias:0.48722617977383537
+
+---------Module name:model.layers.20.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.1495e+06 6.8246e+05 3.3765e+05 ... 2.4490e+00 2.1190e+00 1.7337e+00]
+SVD(XW) Max bias with rank limitation:167455581.43551016
+SVD(XW) Middlebias with rank limitation:0.6423273443958023
+SVD(XW) Average bias with rank limitation::4.348627768317525
+
+|X * hatW - X * W| middle compared bias:0.6423273443928568
+
+---------Module name:model.layers.20.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.1495e+06 6.8246e+05 3.3765e+05 ... 2.4490e+00 2.1190e+00 1.7337e+00]
+SVD(XW) Max bias with rank limitation:389903609.77966005
+SVD(XW) Middlebias with rank limitation:0.36967866735579125
+SVD(XW) Average bias with rank limitation::5.502949852542426
+
+|X * hatW - X * W| middle compared bias:0.3696786673562508
+
+---------Module name:model.layers.20.mlp.down_proj---------
+rank of X.T * X:14336
+values:[2.4656e+05 2.6533e+04 1.4520e+04 ... 3.0011e-17 1.8884e-17 1.0633e-17]
+SVD(XW) Max bias with rank limitation:14921105.683640543
+SVD(XW) Middlebias with rank limitation:0.6677137645567915
+SVD(XW) Average bias with rank limitation::3.2795094081431317
+
+|X * hatW - X * W| middle compared bias:0.6677114750273604
+
+---------Module name:model.layers.21.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.7814e+06 8.3321e+05 4.4123e+05 ... 2.7706e+00 1.7763e+00 1.3055e+00]
+SVD(XW) Max bias with rank limitation:8660146.513564046
+SVD(XW) Middlebias with rank limitation:0.19318847724219593
+SVD(XW) Average bias with rank limitation::9.21218726874986
+
+|X * hatW - X * W| middle compared bias:0.19318847724274774
+
+---------Module name:model.layers.21.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.7814e+06 8.3321e+05 4.4123e+05 ... 2.7706e+00 1.7763e+00 1.3055e+00]
+SVD(XW) Max bias with rank limitation:496139.07054680213
+SVD(XW) Middlebias with rank limitation:0.21396282894795843
+SVD(XW) Average bias with rank limitation::4.2659742452091445
+
+|X * hatW - X * W| middle compared bias:0.21396282894797217
+
+---------Module name:model.layers.21.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.7814e+06 8.3321e+05 4.4123e+05 ... 2.7706e+00 1.7763e+00 1.3055e+00]
+SVD(XW) Max bias with rank limitation:1746700.7291730854
+SVD(XW) Middlebias with rank limitation:0.3602822419769215
+SVD(XW) Average bias with rank limitation::3.5672726959642707
+
+|X * hatW - X * W| middle compared bias:0.36028224197756814
+
+---------Module name:model.layers.21.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[8.1766e+04 2.1401e+04 7.8913e+03 ... 1.0235e-03 9.3886e-04 9.1043e-04]
+SVD(XW) Max bias with rank limitation:6237972.710668304
+SVD(XW) Middlebias with rank limitation:0.5881967395099326
+SVD(XW) Average bias with rank limitation::8.770829593309463
+
+|X * hatW - X * W| middle compared bias:0.588203352132471
+
+---------Module name:model.layers.21.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.8853e+06 7.5703e+05 3.6924e+05 ... 2.7957e+00 2.4277e+00 2.2073e+00]
+SVD(XW) Max bias with rank limitation:24648922.665146437
+SVD(XW) Middlebias with rank limitation:0.7008730823067317
+SVD(XW) Average bias with rank limitation::4.05999722288268
+
+|X * hatW - X * W| middle compared bias:0.7008730823066793
+
+---------Module name:model.layers.21.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.8853e+06 7.5703e+05 3.6924e+05 ... 2.7957e+00 2.4277e+00 2.2073e+00]
+SVD(XW) Max bias with rank limitation:7464647.730625214
+SVD(XW) Middlebias with rank limitation:0.42209662259807296
+SVD(XW) Average bias with rank limitation::4.371849678837647
+
+|X * hatW - X * W| middle compared bias:0.42209662259851605
+
+---------Module name:model.layers.21.mlp.down_proj---------
+rank of X.T * X:14336
+values:[3.2574e+06 3.6183e+04 2.2289e+04 ... 7.5101e-17 3.6860e-17 2.3113e-17]
+SVD(XW) Max bias with rank limitation:57927337.36954218
+SVD(XW) Middlebias with rank limitation:0.7191448780034513
+SVD(XW) Average bias with rank limitation::4.197511485147971
+
+|X * hatW - X * W| middle compared bias:0.7191434168915896
+
+---------Module name:model.layers.22.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.8704e+06 9.2574e+05 4.5296e+05 ... 3.1207e+00 2.1151e+00 1.3756e+00]
+SVD(XW) Max bias with rank limitation:17364129.434561465
+SVD(XW) Middlebias with rank limitation:0.20016107777200456
+SVD(XW) Average bias with rank limitation::2.986784706880615
+
+|X * hatW - X * W| middle compared bias:0.20016107777196315
+
+---------Module name:model.layers.22.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.8704e+06 9.2574e+05 4.5296e+05 ... 3.1207e+00 2.1151e+00 1.3756e+00]
+SVD(XW) Max bias with rank limitation:8880533.885193616
+SVD(XW) Middlebias with rank limitation:0.21745211058754899
+SVD(XW) Average bias with rank limitation::4.884308652610601
+
+|X * hatW - X * W| middle compared bias:0.2174521105839823
+
+---------Module name:model.layers.22.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.8704e+06 9.2574e+05 4.5296e+05 ... 3.1207e+00 2.1151e+00 1.3756e+00]
+SVD(XW) Max bias with rank limitation:1972447.3109970472
+SVD(XW) Middlebias with rank limitation:0.3099675249893292
+SVD(XW) Average bias with rank limitation::2.477435041884737
+
+|X * hatW - X * W| middle compared bias:0.3099675249797823
+
+---------Module name:model.layers.22.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[7.4512e+04 8.1196e+03 2.8821e+03 ... 1.4898e-03 1.4398e-03 1.3625e-03]
+SVD(XW) Max bias with rank limitation:18122075.92868752
+SVD(XW) Middlebias with rank limitation:0.5991579746727986
+SVD(XW) Average bias with rank limitation::4.406114075325841
+
+|X * hatW - X * W| middle compared bias:0.5991622714380447
+
+---------Module name:model.layers.22.mlp.up_proj---------
+rank of X.T * X:4096
+values:[1.5305e+06 7.2445e+05 3.6005e+05 ... 2.2950e+00 1.8527e+00 1.6774e+00]
+SVD(XW) Max bias with rank limitation:73718651.81739311
+SVD(XW) Middlebias with rank limitation:0.6943819265883581
+SVD(XW) Average bias with rank limitation::7.279370926532717
+
+|X * hatW - X * W| middle compared bias:0.6943819265885727
+
+---------Module name:model.layers.22.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[1.5305e+06 7.2445e+05 3.6005e+05 ... 2.2950e+00 1.8527e+00 1.6774e+00]
+SVD(XW) Max bias with rank limitation:62622197.570836194
+SVD(XW) Middlebias with rank limitation:0.4150216062122826
+SVD(XW) Average bias with rank limitation::5.431693628072249
+
+|X * hatW - X * W| middle compared bias:0.4150216062131022
+
+---------Module name:model.layers.22.mlp.down_proj---------
+rank of X.T * X:14336
+values:[5.5456e+05 2.7867e+04 1.4984e+04 ... 4.3352e-17 2.1364e-17 5.3229e-18]
+SVD(XW) Max bias with rank limitation:7206421.069278567
+SVD(XW) Middlebias with rank limitation:0.6960408375098641
+SVD(XW) Average bias with rank limitation::2.9387804082147055
+
+|X * hatW - X * W| middle compared bias:0.6960405120761928
+
+---------Module name:model.layers.23.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.5591e+06 8.6715e+05 4.7164e+05 ... 3.4303e+00 1.9916e+00 1.2625e+00]
+SVD(XW) Max bias with rank limitation:37864350.66436512
+SVD(XW) Middlebias with rank limitation:0.18033368054217194
+SVD(XW) Average bias with rank limitation::3.4347926066041494
+
+|X * hatW - X * W| middle compared bias:0.18033368054210358
+
+---------Module name:model.layers.23.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.5591e+06 8.6715e+05 4.7164e+05 ... 3.4303e+00 1.9916e+00 1.2625e+00]
+SVD(XW) Max bias with rank limitation:842433.8450034695
+SVD(XW) Middlebias with rank limitation:0.20996028853584126
+SVD(XW) Average bias with rank limitation::4.712785930368238
+
+|X * hatW - X * W| middle compared bias:0.20996028853771037
+
+---------Module name:model.layers.23.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.5591e+06 8.6715e+05 4.7164e+05 ... 3.4303e+00 1.9916e+00 1.2625e+00]
+SVD(XW) Max bias with rank limitation:157506.8364620866
+SVD(XW) Middlebias with rank limitation:0.34820697657212585
+SVD(XW) Average bias with rank limitation::2.008645573206719
+
+|X * hatW - X * W| middle compared bias:0.3482069765725727
+
+---------Module name:model.layers.23.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[8.8795e+04 6.7769e+03 3.1407e+03 ... 1.6357e-03 1.5461e-03 1.4746e-03]
+SVD(XW) Max bias with rank limitation:14539371.562823331
+SVD(XW) Middlebias with rank limitation:0.5470840539030035
+SVD(XW) Average bias with rank limitation::4.645249341885317
+
+|X * hatW - X * W| middle compared bias:0.547083204925152
+
+---------Module name:model.layers.23.mlp.up_proj---------
+rank of X.T * X:4096
+values:[2.6332e+06 7.5799e+05 3.6504e+05 ... 2.6794e+00 2.3068e+00 2.1899e+00]
+SVD(XW) Max bias with rank limitation:31189633.1388908
+SVD(XW) Middlebias with rank limitation:0.6810820753270941
+SVD(XW) Average bias with rank limitation::3.7741986575165147
+
+|X * hatW - X * W| middle compared bias:0.681082075327229
+
+---------Module name:model.layers.23.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[2.6332e+06 7.5799e+05 3.6504e+05 ... 2.6794e+00 2.3068e+00 2.1899e+00]
+SVD(XW) Max bias with rank limitation:835259108.8804857
+SVD(XW) Middlebias with rank limitation:0.44098239482455226
+SVD(XW) Average bias with rank limitation::8.429085527286423
+
+|X * hatW - X * W| middle compared bias:0.440982394824428
+
+---------Module name:model.layers.23.mlp.down_proj---------
+rank of X.T * X:14336
+values:[1.6432e+06 3.2374e+04 1.5413e+04 ... 7.7858e-17 5.1998e-17 1.2690e-17]
+SVD(XW) Max bias with rank limitation:113756383.45038652
+SVD(XW) Middlebias with rank limitation:0.6869829933326421
+SVD(XW) Average bias with rank limitation::5.584377672303578
+
+|X * hatW - X * W| middle compared bias:0.6869826661974338
+
+---------Module name:model.layers.24.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.7363e+06 8.4052e+05 4.6768e+05 ... 3.5917e+00 1.6747e+00 1.0778e+00]
+SVD(XW) Max bias with rank limitation:51803990.34000832
+SVD(XW) Middlebias with rank limitation:0.17948503657555234
+SVD(XW) Average bias with rank limitation::3.0878324760934235
+
+|X * hatW - X * W| middle compared bias:0.17948503657452014
+
+---------Module name:model.layers.24.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.7363e+06 8.4052e+05 4.6768e+05 ... 3.5917e+00 1.6747e+00 1.0778e+00]
+SVD(XW) Max bias with rank limitation:3858890.2107921825
+SVD(XW) Middlebias with rank limitation:0.19950735033779254
+SVD(XW) Average bias with rank limitation::5.810037389640096
+
+|X * hatW - X * W| middle compared bias:0.1995073503364882
+
+---------Module name:model.layers.24.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.7363e+06 8.4052e+05 4.6768e+05 ... 3.5917e+00 1.6747e+00 1.0778e+00]
+SVD(XW) Max bias with rank limitation:872422.0268992698
+SVD(XW) Middlebias with rank limitation:0.3091597184284534
+SVD(XW) Average bias with rank limitation::2.233391912120561
+
+|X * hatW - X * W| middle compared bias:0.30915971842861617
+
+---------Module name:model.layers.24.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[9.8442e+04 1.9223e+04 6.3568e+03 ... 7.5023e-04 7.2347e-04 6.9322e-04]
+SVD(XW) Max bias with rank limitation:6629645.572207349
+SVD(XW) Middlebias with rank limitation:0.5441079708224486
+SVD(XW) Average bias with rank limitation::4.660599725542251
+
+|X * hatW - X * W| middle compared bias:0.5441038709654373
+
+---------Module name:model.layers.24.mlp.up_proj---------
+rank of X.T * X:4096
+values:[2.7861e+06 7.6168e+05 3.7304e+05 ... 2.6256e+00 2.2883e+00 2.0029e+00]
+SVD(XW) Max bias with rank limitation:59552458.60150048
+SVD(XW) Middlebias with rank limitation:0.676505156512763
+SVD(XW) Average bias with rank limitation::3.9136399155682375
+
+|X * hatW - X * W| middle compared bias:0.6765051565059369
+
+---------Module name:model.layers.24.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[2.7861e+06 7.6168e+05 3.7304e+05 ... 2.6256e+00 2.2883e+00 2.0029e+00]
+SVD(XW) Max bias with rank limitation:28350405.357446946
+SVD(XW) Middlebias with rank limitation:0.5357227574739237
+SVD(XW) Average bias with rank limitation::4.370041248685534
+
+|X * hatW - X * W| middle compared bias:0.5357227574744898
+
+---------Module name:model.layers.24.mlp.down_proj---------
+rank of X.T * X:14336
+values:[8.8166e+05 2.9968e+04 1.5937e+04 ... 3.8935e-17 2.2598e-17 5.0247e-18]
+SVD(XW) Max bias with rank limitation:2398573.989504608
+SVD(XW) Middlebias with rank limitation:0.7297985764078997
+SVD(XW) Average bias with rank limitation::3.2745478356497024
+
+|X * hatW - X * W| middle compared bias:0.7297994513003483
+
+---------Module name:model.layers.25.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.8301e+06 8.5294e+05 4.6566e+05 ... 4.0768e+00 1.5316e+00 9.9668e-01]
+SVD(XW) Max bias with rank limitation:1474694.432447559
+SVD(XW) Middlebias with rank limitation:0.1868440958456904
+SVD(XW) Average bias with rank limitation::3.0888931409422984
+
+|X * hatW - X * W| middle compared bias:0.18684409584740588
+
+---------Module name:model.layers.25.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.8301e+06 8.5294e+05 4.6566e+05 ... 4.0768e+00 1.5316e+00 9.9668e-01]
+SVD(XW) Max bias with rank limitation:3922931.9007474426
+SVD(XW) Middlebias with rank limitation:0.19183880793732672
+SVD(XW) Average bias with rank limitation::3.6259706788067803
+
+|X * hatW - X * W| middle compared bias:0.19183880793740465
+
+---------Module name:model.layers.25.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.8301e+06 8.5294e+05 4.6566e+05 ... 4.0768e+00 1.5316e+00 9.9668e-01]
+SVD(XW) Max bias with rank limitation:267290081.70530197
+SVD(XW) Middlebias with rank limitation:0.34018463383386743
+SVD(XW) Average bias with rank limitation::19.70201546513883
+
+|X * hatW - X * W| middle compared bias:0.34018463383413194
+
+---------Module name:model.layers.25.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[1.4311e+05 1.6116e+04 4.9166e+03 ... 6.5050e-04 6.3531e-04 5.1650e-04]
+SVD(XW) Max bias with rank limitation:10927125.098410105
+SVD(XW) Middlebias with rank limitation:0.5307975810506051
+SVD(XW) Average bias with rank limitation::4.258593080397057
+
+|X * hatW - X * W| middle compared bias:0.5307949503191907
+
+---------Module name:model.layers.25.mlp.up_proj---------
+rank of X.T * X:4096
+values:[3.3844e+06 8.5344e+05 4.0554e+05 ... 2.5542e+00 2.4443e+00 2.0099e+00]
+SVD(XW) Max bias with rank limitation:93327181.16215912
+SVD(XW) Middlebias with rank limitation:0.6576650378570102
+SVD(XW) Average bias with rank limitation::3.9187434056380552
+
+|X * hatW - X * W| middle compared bias:0.65766503785343
+
+---------Module name:model.layers.25.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[3.3844e+06 8.5344e+05 4.0554e+05 ... 2.5542e+00 2.4443e+00 2.0099e+00]
+SVD(XW) Max bias with rank limitation:15409145.895980963
+SVD(XW) Middlebias with rank limitation:0.5306459746922341
+SVD(XW) Average bias with rank limitation::4.518146665765888
+
+|X * hatW - X * W| middle compared bias:0.5306459746919336
+
+---------Module name:model.layers.25.mlp.down_proj---------
+rank of X.T * X:14336
+values:[2.8025e+06 4.7499e+04 2.5308e+04 ... 5.7233e-17 3.0658e-17 6.2222e-18]
+SVD(XW) Max bias with rank limitation:8917032.302328946
+SVD(XW) Middlebias with rank limitation:0.7170959585804295
+SVD(XW) Average bias with rank limitation::3.307956561161554
+
+|X * hatW - X * W| middle compared bias:0.7170971611001148
+
+---------Module name:model.layers.26.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.7207e+06 8.2031e+05 4.4532e+05 ... 3.8347e+00 1.7987e+00 1.1130e+00]
+SVD(XW) Max bias with rank limitation:224133927.0646508
+SVD(XW) Middlebias with rank limitation:0.1794766619987016
+SVD(XW) Average bias with rank limitation::6.110014624092414
+
+|X * hatW - X * W| middle compared bias:0.17947666199904072
+
+---------Module name:model.layers.26.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.7207e+06 8.2031e+05 4.4532e+05 ... 3.8347e+00 1.7987e+00 1.1130e+00]
+SVD(XW) Max bias with rank limitation:8029073.015132434
+SVD(XW) Middlebias with rank limitation:0.20165967638515286
+SVD(XW) Average bias with rank limitation::4.177595121610086
+
+|X * hatW - X * W| middle compared bias:0.2016596763856936
+
+---------Module name:model.layers.26.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.7207e+06 8.2031e+05 4.4532e+05 ... 3.8347e+00 1.7987e+00 1.1130e+00]
+SVD(XW) Max bias with rank limitation:5122894.5266473675
+SVD(XW) Middlebias with rank limitation:0.3121288551378949
+SVD(XW) Average bias with rank limitation::2.9081687258907016
+
+|X * hatW - X * W| middle compared bias:0.3121288551390622
+
+---------Module name:model.layers.26.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[1.1433e+05 5.0975e+04 1.5045e+04 ... 2.2667e-03 2.1055e-03 1.9531e-03]
+SVD(XW) Max bias with rank limitation:53700066.26185706
+SVD(XW) Middlebias with rank limitation:0.5293383635243613
+SVD(XW) Average bias with rank limitation::5.435186193672427
+
+|X * hatW - X * W| middle compared bias:0.5293384801664763
+
+---------Module name:model.layers.26.mlp.up_proj---------
+rank of X.T * X:4096
+values:[3.7601e+06 9.9581e+05 4.5313e+05 ... 2.9386e+00 2.7019e+00 2.3202e+00]
+SVD(XW) Max bias with rank limitation:6279376.75630226
+SVD(XW) Middlebias with rank limitation:0.6797752441501148
+SVD(XW) Average bias with rank limitation::4.024343101508809
+
+|X * hatW - X * W| middle compared bias:0.6797752441583375
+
+---------Module name:model.layers.26.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[3.7601e+06 9.9581e+05 4.5313e+05 ... 2.9386e+00 2.7019e+00 2.3202e+00]
+SVD(XW) Max bias with rank limitation:5648889.466997486
+SVD(XW) Middlebias with rank limitation:0.520429971787385
+SVD(XW) Average bias with rank limitation::3.873459934279481
+
+|X * hatW - X * W| middle compared bias:0.5204299717884643
+
+---------Module name:model.layers.26.mlp.down_proj---------
+rank of X.T * X:14336
+values:[1.5901e+06 1.3175e+05 7.1888e+04 ... 1.0077e-16 9.3861e-17 2.6196e-17]
+SVD(XW) Max bias with rank limitation:2293045.6744369897
+SVD(XW) Middlebias with rank limitation:0.7324713138666207
+SVD(XW) Average bias with rank limitation::3.2929985568550597
+
+|X * hatW - X * W| middle compared bias:0.732471294907394
+
+---------Module name:model.layers.27.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.6776e+06 9.6909e+05 4.8735e+05 ... 4.4247e+00 2.5455e+00 5.7144e-08]
+SVD(XW) Max bias with rank limitation:63528821.23500647
+SVD(XW) Middlebias with rank limitation:0.18147829697608744
+SVD(XW) Average bias with rank limitation::3.5308196622531955
+
+|X * hatW - X * W| middle compared bias:0.1814782969764242
+
+---------Module name:model.layers.27.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.6776e+06 9.6909e+05 4.8735e+05 ... 4.4247e+00 2.5455e+00 5.7144e-08]
+SVD(XW) Max bias with rank limitation:947175.7651675097
+SVD(XW) Middlebias with rank limitation:0.20765792649273787
+SVD(XW) Average bias with rank limitation::3.785734193054033
+
+|X * hatW - X * W| middle compared bias:0.20765792650044718
+
+---------Module name:model.layers.27.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.6776e+06 9.6909e+05 4.8735e+05 ... 4.4247e+00 2.5455e+00 5.7144e-08]
+SVD(XW) Max bias with rank limitation:3302738.870057979
+SVD(XW) Middlebias with rank limitation:0.2905543963102676
+SVD(XW) Average bias with rank limitation::2.435622264110035
+
+|X * hatW - X * W| middle compared bias:0.290554396317544
+
+---------Module name:model.layers.27.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[2.0038e+05 4.6247e+04 1.5983e+04 ... 4.6300e-03 4.0496e-03 3.7247e-03]
+SVD(XW) Max bias with rank limitation:11177794.976167127
+SVD(XW) Middlebias with rank limitation:0.4658138494165441
+SVD(XW) Average bias with rank limitation::7.060617772053579
+
+|X * hatW - X * W| middle compared bias:0.46581398209264624
+
+---------Module name:model.layers.27.mlp.up_proj---------
+rank of X.T * X:4096
+values:[3.1703e+06 1.2317e+06 5.2563e+05 ... 3.8358e+00 3.2502e+00 2.9958e+00]
+SVD(XW) Max bias with rank limitation:27969296.837918606
+SVD(XW) Middlebias with rank limitation:0.5871452298480992
+SVD(XW) Average bias with rank limitation::3.5210085446421986
+
+|X * hatW - X * W| middle compared bias:0.5871452298488893
+
+---------Module name:model.layers.27.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[3.1703e+06 1.2317e+06 5.2563e+05 ... 3.8358e+00 3.2502e+00 2.9958e+00]
+SVD(XW) Max bias with rank limitation:20917290.640211098
+SVD(XW) Middlebias with rank limitation:0.4540658499671659
+SVD(XW) Average bias with rank limitation::4.3704180376550195
+
+|X * hatW - X * W| middle compared bias:0.4540658499679042
+
+---------Module name:model.layers.27.mlp.down_proj---------
+rank of X.T * X:14336
+values:[2.6350e+06 1.1801e+05 5.5107e+04 ... 7.8696e-17 4.1853e-17 2.0764e-17]
+SVD(XW) Max bias with rank limitation:2522832.0580496085
+SVD(XW) Middlebias with rank limitation:0.535712479738802
+SVD(XW) Average bias with rank limitation::3.128118981641623
+
+|X * hatW - X * W| middle compared bias:0.5357096023427661
+
+---------Module name:model.layers.28.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.6730e+06 9.8604e+05 4.8650e+05 ... 4.3406e+00 2.7639e+00 2.1094e+00]
+SVD(XW) Max bias with rank limitation:1973395.7104874058
+SVD(XW) Middlebias with rank limitation:0.17350015962759108
+SVD(XW) Average bias with rank limitation::3.06914166741472
+
+|X * hatW - X * W| middle compared bias:0.17350015962776427
+
+---------Module name:model.layers.28.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.6730e+06 9.8604e+05 4.8650e+05 ... 4.3406e+00 2.7639e+00 2.1094e+00]
+SVD(XW) Max bias with rank limitation:6165954.497544722
+SVD(XW) Middlebias with rank limitation:0.22815420522006313
+SVD(XW) Average bias with rank limitation::4.550156030179891
+
+|X * hatW - X * W| middle compared bias:0.2281542052154732
+
+---------Module name:model.layers.28.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.6730e+06 9.8604e+05 4.8650e+05 ... 4.3406e+00 2.7639e+00 2.1094e+00]
+SVD(XW) Max bias with rank limitation:70366189.94994386
+SVD(XW) Middlebias with rank limitation:0.36192606906755925
+SVD(XW) Average bias with rank limitation::6.943170938367787
+
+|X * hatW - X * W| middle compared bias:0.3619260690672847
+
+---------Module name:model.layers.28.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[1.6313e+05 5.4983e+04 1.5802e+04 ... 1.7964e-02 1.7398e-02 1.7041e-02]
+SVD(XW) Max bias with rank limitation:6935281.3653
+SVD(XW) Middlebias with rank limitation:0.571685069909918
+SVD(XW) Average bias with rank limitation::4.527482066854605
+
+|X * hatW - X * W| middle compared bias:0.5716850699095257
+
+---------Module name:model.layers.28.mlp.up_proj---------
+rank of X.T * X:4096
+values:[4.8202e+06 1.4190e+06 6.2389e+05 ... 4.4069e+00 3.8633e+00 3.2466e+00]
+SVD(XW) Max bias with rank limitation:9435971.212055428
+SVD(XW) Middlebias with rank limitation:0.6027177697453698
+SVD(XW) Average bias with rank limitation::4.432790155649799
+
+|X * hatW - X * W| middle compared bias:0.6027177697470611
+
+---------Module name:model.layers.28.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[4.8202e+06 1.4190e+06 6.2389e+05 ... 4.4069e+00 3.8633e+00 3.2466e+00]
+SVD(XW) Max bias with rank limitation:22298127.32397556
+SVD(XW) Middlebias with rank limitation:0.4879297059017861
+SVD(XW) Average bias with rank limitation::4.105960129066968
+
+|X * hatW - X * W| middle compared bias:0.48792970590073526
+
+---------Module name:model.layers.28.mlp.down_proj---------
+rank of X.T * X:14336
+values:[5.2257e+06 2.3235e+05 1.3534e+05 ... 1.0633e-16 5.3769e-17 2.4939e-17]
+SVD(XW) Max bias with rank limitation:3346301.615841195
+SVD(XW) Middlebias with rank limitation:0.603680083922077
+SVD(XW) Average bias with rank limitation::4.024431359225146
+
+|X * hatW - X * W| middle compared bias:0.6036806301608746
+
+---------Module name:model.layers.29.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.5340e+06 1.0209e+06 4.9949e+05 ... 5.0876e+00 1.9041e+00 5.0843e-08]
+SVD(XW) Max bias with rank limitation:16944586.37604848
+SVD(XW) Middlebias with rank limitation:0.1788563041649542
+SVD(XW) Average bias with rank limitation::2.7996772939344825
+
+|X * hatW - X * W| middle compared bias:0.17885630416566492
+
+---------Module name:model.layers.29.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.5340e+06 1.0209e+06 4.9949e+05 ... 5.0876e+00 1.9041e+00 5.0843e-08]
+SVD(XW) Max bias with rank limitation:1497744.707529048
+SVD(XW) Middlebias with rank limitation:0.20962904073215646
+SVD(XW) Average bias with rank limitation::3.5494555524743783
+
+|X * hatW - X * W| middle compared bias:0.20962904076563663
+
+---------Module name:model.layers.29.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.5340e+06 1.0209e+06 4.9949e+05 ... 5.0876e+00 1.9041e+00 5.0843e-08]
+SVD(XW) Max bias with rank limitation:8018637.942425899
+SVD(XW) Middlebias with rank limitation:0.2982535092537937
+SVD(XW) Average bias with rank limitation::3.717267853646198
+
+|X * hatW - X * W| middle compared bias:0.29825350921569227
+
+---------Module name:model.layers.29.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[3.1200e+05 1.4116e+05 3.1479e+04 ... 6.5394e-03 6.2748e-03 3.1447e-03]
+SVD(XW) Max bias with rank limitation:60611777.220986806
+SVD(XW) Middlebias with rank limitation:0.41504824578797983
+SVD(XW) Average bias with rank limitation::5.073707720402409
+
+|X * hatW - X * W| middle compared bias:0.41504825340202983
+
+---------Module name:model.layers.29.mlp.up_proj---------
+rank of X.T * X:4096
+values:[5.1567e+06 1.5636e+06 7.1962e+05 ... 5.1607e+00 3.8885e+00 3.2888e+00]
+SVD(XW) Max bias with rank limitation:143339113.5235666
+SVD(XW) Middlebias with rank limitation:0.5793953488366639
+SVD(XW) Average bias with rank limitation::5.163994995931334
+
+|X * hatW - X * W| middle compared bias:0.5793953488370298
+
+---------Module name:model.layers.29.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[5.1567e+06 1.5636e+06 7.1962e+05 ... 5.1607e+00 3.8885e+00 3.2888e+00]
+SVD(XW) Max bias with rank limitation:31252608.243811607
+SVD(XW) Middlebias with rank limitation:0.46211045274242124
+SVD(XW) Average bias with rank limitation::4.352011245318869
+
+|X * hatW - X * W| middle compared bias:0.46211045274284285
+
+---------Module name:model.layers.29.mlp.down_proj---------
+rank of X.T * X:14336
+values:[7.9688e+06 5.1579e+05 2.1454e+05 ... 1.4677e-16 1.2845e-16 3.2420e-17]
+SVD(XW) Max bias with rank limitation:7268609.46222501
+SVD(XW) Middlebias with rank limitation:0.5820051803790196
+SVD(XW) Average bias with rank limitation::3.956617486285811
+
+|X * hatW - X * W| middle compared bias:0.5820055407093305
+
+---------Module name:model.layers.30.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[2.5886e+06 1.1020e+06 4.9586e+05 ... 4.2326e+00 2.1573e+00 1.6217e+00]
+SVD(XW) Max bias with rank limitation:38832282.70853457
+SVD(XW) Middlebias with rank limitation:0.178277041574589
+SVD(XW) Average bias with rank limitation::3.443217087354597
+
+|X * hatW - X * W| middle compared bias:0.17827704157462332
+
+---------Module name:model.layers.30.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[2.5886e+06 1.1020e+06 4.9586e+05 ... 4.2326e+00 2.1573e+00 1.6217e+00]
+SVD(XW) Max bias with rank limitation:1134054.540998937
+SVD(XW) Middlebias with rank limitation:0.19914532469578533
+SVD(XW) Average bias with rank limitation::3.2363625803861895
+
+|X * hatW - X * W| middle compared bias:0.1991453246960676
+
+---------Module name:model.layers.30.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[2.5886e+06 1.1020e+06 4.9586e+05 ... 4.2326e+00 2.1573e+00 1.6217e+00]
+SVD(XW) Max bias with rank limitation:1051696.4550750665
+SVD(XW) Middlebias with rank limitation:0.28441918572049724
+SVD(XW) Average bias with rank limitation::2.238983951868296
+
+|X * hatW - X * W| middle compared bias:0.28441918572123887
+
+---------Module name:model.layers.30.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[4.3609e+05 9.4756e+04 6.4124e+04 ... 1.9437e-02 1.9098e-02 1.8844e-02]
+SVD(XW) Max bias with rank limitation:12732986.815618336
+SVD(XW) Middlebias with rank limitation:0.47306003235468824
+SVD(XW) Average bias with rank limitation::13.647755636265085
+
+|X * hatW - X * W| middle compared bias:0.47305929078851167
+
+---------Module name:model.layers.30.mlp.up_proj---------
+rank of X.T * X:4096
+values:[6.1108e+06 1.5324e+06 7.2680e+05 ... 5.9437e+00 4.5718e+00 4.0781e+00]
+SVD(XW) Max bias with rank limitation:50164522.35438325
+SVD(XW) Middlebias with rank limitation:0.48814735465385456
+SVD(XW) Average bias with rank limitation::4.209566646230542
+
+|X * hatW - X * W| middle compared bias:0.48814735465161063
+
+---------Module name:model.layers.30.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[6.1108e+06 1.5324e+06 7.2680e+05 ... 5.9437e+00 4.5718e+00 4.0781e+00]
+SVD(XW) Max bias with rank limitation:5182541.119129331
+SVD(XW) Middlebias with rank limitation:0.43085648414001626
+SVD(XW) Average bias with rank limitation::3.762318442972375
+
+|X * hatW - X * W| middle compared bias:0.4308564841413349
+
+---------Module name:model.layers.30.mlp.down_proj---------
+rank of X.T * X:14336
+values:[9.2142e+06 9.7526e+05 3.9347e+05 ... 4.3327e-16 2.8753e-16 1.2435e-16]
+SVD(XW) Max bias with rank limitation:3887788.175288993
+SVD(XW) Middlebias with rank limitation:0.5220880303432864
+SVD(XW) Average bias with rank limitation::4.171248551069369
+
+|X * hatW - X * W| middle compared bias:0.5220894090424428
+
+---------Module name:model.layers.31.self_attn.q_proj---------
+rank of X.T * X:4096
+values:[1.8770e+06 7.1370e+05 3.5726e+05 ... 1.9252e+00 1.4935e+00 9.9551e-01]
+SVD(XW) Max bias with rank limitation:10254293.512047155
+SVD(XW) Middlebias with rank limitation:0.16233250375616945
+SVD(XW) Average bias with rank limitation::2.4795059375627173
+
+|X * hatW - X * W| middle compared bias:0.16233250375654884
+
+---------Module name:model.layers.31.self_attn.k_proj---------
+rank of X.T * X:4096
+values:[1.8770e+06 7.1370e+05 3.5726e+05 ... 1.9252e+00 1.4935e+00 9.9551e-01]
+SVD(XW) Max bias with rank limitation:1231063.8737929107
+SVD(XW) Middlebias with rank limitation:0.17327147231603093
+SVD(XW) Average bias with rank limitation::3.451460217779997
+
+|X * hatW - X * W| middle compared bias:0.17327147231569023
+
+---------Module name:model.layers.31.self_attn.v_proj---------
+rank of X.T * X:4096
+values:[1.8770e+06 7.1370e+05 3.5726e+05 ... 1.9252e+00 1.4935e+00 9.9551e-01]
+SVD(XW) Max bias with rank limitation:3433090.7273311126
+SVD(XW) Middlebias with rank limitation:0.3133779437381975
+SVD(XW) Average bias with rank limitation::3.586442368824909
+
+|X * hatW - X * W| middle compared bias:0.3133779437387365
+
+---------Module name:model.layers.31.self_attn.o_proj---------
+rank of X.T * X:4096
+values:[6.4834e+05 3.2590e+05 2.5829e+05 ... 1.6103e-02 1.3183e-02 1.2326e-02]
+SVD(XW) Max bias with rank limitation:351951626.3931039
+SVD(XW) Middlebias with rank limitation:0.4817120708825558
+SVD(XW) Average bias with rank limitation::10.092845070708512
+
+|X * hatW - X * W| middle compared bias:0.4817135069125368
+
+---------Module name:model.layers.31.mlp.up_proj---------
+rank of X.T * X:4096
+values:[4.0665e+06 1.4683e+06 5.5803e+05 ... 1.9409e+00 1.3787e+00 1.2969e+00]
+SVD(XW) Max bias with rank limitation:709063424.8355025
+SVD(XW) Middlebias with rank limitation:0.35956811770751235
+SVD(XW) Average bias with rank limitation::7.031990924888014
+
+|X * hatW - X * W| middle compared bias:0.3595681177091458
+
+---------Module name:model.layers.31.mlp.gate_proj---------
+rank of X.T * X:4096
+values:[4.0665e+06 1.4683e+06 5.5803e+05 ... 1.9409e+00 1.3787e+00 1.2969e+00]
+SVD(XW) Max bias with rank limitation:41703659.217111595
+SVD(XW) Middlebias with rank limitation:0.3203176632908451
+SVD(XW) Average bias with rank limitation::3.5452979554981776
+
+|X * hatW - X * W| middle compared bias:0.3203176632916581
+
+---------Module name:model.layers.31.mlp.down_proj---------
+rank of X.T * X:14336
+values:[1.1039e+08 5.1279e+07 6.0093e+06 ... 1.4540e-15 7.7461e-16 3.9674e-16]
+SVD(XW) Max bias with rank limitation:16326282.762409566
+SVD(XW) Middlebias with rank limitation:0.43878792214865436
+SVD(XW) Average bias with rank limitation::4.25560385329553
+
+|X * hatW - X * W| middle compared bias:0.4387897084556779
+
