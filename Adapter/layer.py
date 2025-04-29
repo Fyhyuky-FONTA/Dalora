@@ -57,6 +57,7 @@ class DaLoraLayer:
                 "Only support nn.Linear layer now."
             )
 
+        # in & out dimension of feature matrix
         self.in_features = in_features
         self.out_features = out_features
 
@@ -71,21 +72,29 @@ class DaLoraLayer:
 
     @property
     def bias(self) -> torch.Tensor:
+        """Return base layer's bias parameter"""
         base_layer = self.get_base_layer()
         return base_layer.bias
 
     @property
     def merged(self) -> bool:
+        """Return whether the base layer in DaLoRA model is merged with DaLoRA layer or not"""
         return bool(self.merged_adapters)
 
     @property
     def disable_adapters(self) -> bool:
-        # use a property to ensure that disable_adapters is not set directly, instead use the enable_adapters method
+        """
+            use a property to ensure that disable_adapters is not set directly,
+            instead use the enable_adapters method
+        """
         return self._disable_adapters
 
     @property
     def active_adapter(self) -> str | list[str]:
-        # use a property to ensure that active_adapter is not set directly, instead use the set_adapter method
+        """
+            use a property to ensure that active_adapter is not set directly,
+            instead use the set_adapter method
+        """
         return self._active_adapter
 
     def _get_available_adapters(self) -> set[str]:
@@ -108,10 +117,10 @@ class DaLoraLayer:
     # whether enable all adapters or not
     def enable_adapters(self, enabled: bool) -> None:
         """
-        Toggle the enabling and disabling of adapters
-        Takes care of setting the requires_grad flag for the adapter weights.
-        Args:
-            enabled (bool): True to enable adapters, False to disable adapters
+            Toggle the enabling and disabling of adapters
+            Takes care of setting the requires_grad flag for the adapter weights.
+            Args:
+                enabled (bool): True to enable adapters, False to disable adapters
         """
         if enabled:
             self.set_adapter(self.active_adapters)
@@ -127,8 +136,10 @@ class DaLoraLayer:
         """Return a sorted list of all available adapter names"""
         adapter_names = set()
         for name in self.adapter_layer_names + self.other_param_names:
-            # we check each possible attribute and if it's a dict or ModuleDict, we assume that the keys are the adapter
-            # names
+            """
+                Check each possible attribute and if it's a dict or ModuleDict,
+                we assume that the keys are the adapter names
+            """
             attr = getattr(self, name)
             if hasattr(attr, "keys"):
                 adapter_names.update(attr.keys())
@@ -164,8 +175,8 @@ class DaLoraLayer:
     # Dalora matrix init
     def matrix_init(self, adapter_name, inputs):
         '''
-        :param adapter_name: current adapter name
-        :param inputs: sampling data as target's inputs, shape of [B, L, dim]
+            :param adapter_name: current adapter name
+            :param inputs: sampling data as target's inputs, shape of [B, L, dim]
         '''
 
         ''' prepare W matirx '''
@@ -178,10 +189,6 @@ class DaLoraLayer:
         else:
             cast_weight = weight
 
-        '''
-        这个位置出现了一些问题
-        '''
-        # print(self.base_layer)
         W = cast_weight.cpu().numpy().T  # [dim_in, dim_out]
         del cast_weight
 
@@ -192,22 +199,28 @@ class DaLoraLayer:
         if X.dtype != torch.float64:
             X = X.to(torch.float64)
 
-        # 查看GPU占用
+        # Check GPU usage
         gpus = GPUtil.getGPUs()
         for gpu in gpus:
-            print(
-                f"{gpu.memoryUsed}MB / {gpu.memoryTotal}MB"
-            )
+            print(f"{gpu.memoryUsed}MB / {gpu.memoryTotal}MB")
             break
 
         X = X.cpu().numpy()
 
-        ''' FastSVD '''
+        ''' using FastSVD object to compute SVD(XW) '''
         rank = self.r[adapter_name]
-        fast = FastSVD(X=X, W=W, r=rank, batch_size=self.batch_size, lr=self.learning_rate,
-                       regu=self.regularization, lamb=self.lamb, cross=self.cross_regu)
+        fast = FastSVD(
+            X=X, 
+            W=W, 
+            r=rank, 
+            batch_size=self.batch_size, 
+            lr=self.learning_rate,
+            regu=self.regularization, 
+            lamb=self.lamb, 
+            cross=self.cross_regu
+        )
 
-        # train or compute matrix directly
+        # train mode or compute matrix directly
         if self.method == 'train':
             fast.train(self.epoch)
             U = fast.U.data
@@ -219,20 +232,10 @@ class DaLoraLayer:
             U = U[:, :rank]  # [BL, r]
             VT = VT[:rank, :]  # [r, dim_out]
 
-        "<<< 下面对X.T @ X逆矩阵的计算进行修正 >>>"
-        '''
-        这里需要对于X.T @ X进行分析，如果X.T @ X不可逆，则数值将会出现不稳定性，这时可以使用修正方式：
-        1.对于X.T @ X加上对角线元素平均值的缩放因子，不断进行分解，直到能够分解。
-        2.对X.T @ X先进行特征值分解，将对角线上的0值替换为所有特征值平均值的缩放因子。
-        '''
-        np.set_printoptions(precision=4)
-
-        # 方法1
+        ''' Compute inv(X.T @ X) '''
         XTX = X.T @ X
 
-        # 这里GPU加速
-        # xU, xS, xVT = np.linalg.svd(XTX)
-        # 指定设备并执行计算
+        # GPU accelerate, and perform calculations on a specified device
         with cp.cuda.Device(cp.cuda.runtime.getDeviceCount() - 1):
             XTX = cp.asarray(XTX)
             xU, xS, xVT = cp.linalg.svd(XTX)
@@ -240,116 +243,37 @@ class DaLoraLayer:
             xS = cp.asnumpy(xS)
             xVT = cp.asnumpy(xVT)
 
+        # open the file and append content
         nzeros = np.sum(xS > 0)
-        print("rank of X.T * X:", nzeros)
-        print("values:", xS)
-        print('\n')
-
-        # 打开文件并追加内容
         with open("/root/autodl-tmp/code/result.txt", "a", encoding="utf-8") as file:
             file.write(f"rank of X.T * X:{nzeros}\n")
             file.write(f"values:{xS}\n")
 
-        # # 修正
-        # if nzeros < X.shape[1]:
-        #     esum = np.sum(xS) / X.shape[1] * 0.001
-        #     print("Eta:", esum)
-        #     xS[xS < esum] = esum
-
         esum = np.sum(xS) / X.shape[1] / math.sqrt(X.shape[0] * X.shape[1])
-        print("Eta:", esum)
         xS[xS < esum] = esum
 
         xS = 1 / xS
         invM = xVT.T @ np.diag(xS) @ xU.T  # 修正后的逆矩阵
 
-        # # 方法2
-        # evalues, evectors = np.linalg.eig(XTX)
-        # evectors = np.abs(evectors)
-        # evalues = np.abs(evalues)
-
-        # nzeros = np.sum(evalues > 0)
-        # print("rank of X.T * X:", nzeros)
-        # print("values:", evalues)
-        # print("vectors:", evectors)
-
-        # esum = np.sum(evalues) / X.shape[1] * 0.01
-        # print("Eta:", esum)
-
-        # evalues[evalues < esum] = esum
-        # evalues = 1 / evalues
-        # invM = evectors @ np.diag(evalues) @ evectors.T  # 修正后的逆矩阵
-
         nan_count = np.sum(np.isnan(invM))
         if nan_count > 0:
             raise (f'Nan value. Number:{nan_count}')
 
-        # print("X.T * X", XTX, XTX.dtype)
-        # print("inv(X.T * X):", invM, invM.dtype)
-        # print("original * inv:", XTX @ invM)
-        # print('\n')
-
-        nan_count = np.sum(np.isnan(invM))
-        if nan_count > 0:
-            raise (f'Nan value. Number:{nan_count}')
-
-        '''
-        验证分解效果
-        '''
+        ''' Compute B & A '''
         XW = X @ W
-
-        # 查看相对逼近程度
-        delta = np.abs((XW - U @ S @ VT) / (XW + 0.000001))
-        m_max = np.max(delta)
-        m_middle = np.median(delta)
-        m_mean = np.sum(delta) / (delta.shape[0] * delta.shape[1])
-        print("SVD(XW) Max bias with rank limitation:", m_max)
-        print("SVD(XW) Middle bias with rank limitation:", m_middle)
-        print("SVD(XW) Average bias with rank limitation:", m_mean)
-        print('\n')
-
-        # 打开文件并追加内容
-        with open("/root/autodl-tmp/code/result.txt", "a", encoding="utf-8") as file:
-            file.write(f"SVD(XW) Max bias with rank limitation:{m_max}\n")
-            file.write(f"SVD(XW) Middlebias with rank limitation:{m_middle}\n")
-            file.write(f"SVD(XW) Average bias with rank limitation::{m_mean}\n\n")
-
-
-        "<<< 上面对X.T @ X逆矩阵的计算进行修正 >>>"
-
-        # compute B & A
         S /= self.scaling[adapter_name]
         A = invM @ X.T @ U @ np.sqrt(S)  # [dim_in, dim_in] [dim_in, BL] [BL, r] [r, r] -> [dim_in, r]
         B = np.sqrt(S) @ VT  # [r, r] [r, dim_out] -> [r, dim_out]
 
-        "<<< 下面验证|X * hatW - X * W|的分解效果 >>>"
+        ''' Check the result on |X * hatW - X * W| '''
         XWh = X @ A @ B * self.scaling[adapter_name]  # 注意这里将缩放因子还原
-        # print("X * hatW:", XWh)
-        # print("X * W:", XW)
-        # print('\n')
-
         delta = np.abs(XWh - XW)
-        # print("Delta:", delta)
-        # print("|X * hatW - X * W|:")
-        # print("max bias:", np.max(delta))
-        # print("middle bias:", np.median(delta))
-        # print("mean bias:", np.sum(delta) / (delta.shape[0] * delta.shape[1]))
-        # print('\n')
-
         cdelta = np.abs(delta / (XW + 0.000001))
-        # print("cDelta:", cdelta)
-        print("|X * hatW - X * W|:")
-        # print("max compared bias:", np.max(cdelta))
-        print("middle compared bias:", np.median(cdelta))
-        # print("mean compared bias:", np.sum(cdelta) / (delta.shape[0] * delta.shape[1]))
-        print('\n')
 
-        # 打开文件并追加内容
         with open("/root/autodl-tmp/code/result.txt", "a", encoding="utf-8") as file:
             file.write(f"|X * hatW - X * W| middle compared bias:{np.median(cdelta)}\n\n")
 
-        "<<< 上面验证|X * hatW - X * W|的分解效果 >>>"
-
+        ''' Building... '''
         # to tensor
         original_weight = weight.data.float()
 
@@ -361,13 +285,7 @@ class DaLoraLayer:
         self.Dalora_A[adapter_name].weight.data = Dalora_A 
         self.Dalora_B[adapter_name].weight.data = Dalora_B 
         self.get_base_layer().weight.data = residual_weight.to(dtype)
-
-        # print("A max & min:", torch.max(Dalora_A), torch.min(Dalora_A))
-        # print("B max & min:", torch.max(Dalora_B), torch.min(Dalora_B))
         
-        now_weight = weight.data + (self.scaling[adapter_name] * Dalora_B) @ Dalora_A
-        print("Weight compare:", torch.abs(original_weight - now_weight) / original_weight)
-
     # move adapter to device which base layer is on
     def _move_adapter_to_device_of_base_layer(self, adapter_name: str, device: Optional[torch.device] = None) -> None:
         """
@@ -400,20 +318,20 @@ class DaLoraLayer:
             else:
                 adapter_layer[adapter_name] = adapter_layer[adapter_name].to(device)
 
-    # set current adapter as trainable while set other adapters as un-trainable
     def set_adapter(self, adapter_names: str | list[str]) -> None:
         """
-        Set the active adapter(s).
-        Additionally, this function will set the specified adapters to trainable (i.e., requires_grad=True).
-        If this is not desired, use the following code.
+            Set current adapter as trainable while set other adapters as un-trainable.
+            Set the active adapter(s).
+            Additionally, this function will set the specified adapters to trainable (i.e., requires_grad=True).
+            If this is not desired, use the following code.
 
-        ```py
-        >>> for name, param in model_peft.named_parameters():
-        ...     if ...:  # some check on name (ex. if 'lora' in name)
-        ...         param.requires_grad = False
-        ```
-        Args:
-            adapter_name (`str` or `List[str]`): Name of the adapter(s) to be activated.
+            ```py
+            >>> for name, param in model.named_parameters():
+            ...     if ...:  # some check on name (ex. if 'Dalora' in name)
+            ...         param.requires_grad = False
+            ```
+            Args:
+                adapter_name (`str` or `List[str]`): Name of the adapter(s) to be activated.
         """
         if isinstance(adapter_names, str):
             adapter_names = [adapter_names]
@@ -423,8 +341,8 @@ class DaLoraLayer:
             module_dict = getattr(self, layer_name)
             for key, layer in module_dict.items():
                 '''
-                Note: It is possible that not a single layer is called with requires_grad_(True) here. 
-                This may happen if a completely different adapter layer is being activated.
+                    Note: It is possible that not a single layer is called with requires_grad_(True) here. 
+                    This may happen if a completely different adapter layer is being activated.
                 '''
                 if key in adapter_names:
                     layer.requires_grad_(True)
@@ -435,12 +353,12 @@ class DaLoraLayer:
 
     def delete_adapter(self, adapter_name: str) -> None:
         """
-        Delete an adapter from the layer
-        This should be called on all adapter layers, or else we will get an inconsistent state.
-        This method will also set a new active adapter if the deleted adapter was an active adapter. It is important
-        that the new adapter is chosen in a deterministic way, so that the same adapter is chosen on all layers.
-        Args:
-            adapter_name (`str`): The name of the adapter to delete
+            Delete an adapter from the layer
+            This should be called on all adapter layers, or else we will get an inconsistent state.
+            This method will also set a new active adapter if the deleted adapter was an active adapter. It is important
+            that the new adapter is chosen in a deterministic way, so that the same adapter is chosen on all layers.
+            Args:
+                adapter_name (`str`): The name of the adapter to delete
         """
         for attr in self.adapter_layer_names + self.other_param_names:
             if adapter_name in getattr(self, attr):
@@ -470,8 +388,10 @@ class DaLoraLayer:
     def _mixed_batch_forward(
         self, x: torch.Tensor, *args: Any, adapter_names: list[str], **kwargs: Any
     ) -> torch.Tensor:
-        # This is a special method that handles the case when users pass the argument `adapter_names`. This is an
-        # extra argument that allows mixing different adapters in the same batch at inference time.
+        """
+            This is a special method that handles the case when users pass the argument `adapter_names`.
+            This is an extra argument that allows mixing different adapters in the same batch at inference time.
+        """
         result = self.base_layer(x, *args, **kwargs)
         torch_result_dtype = result.dtype
 
@@ -492,8 +412,8 @@ class DaLoraLayer:
             scaling = self.scaling[active_adapter]
 
             '''
-            getting the sub-batch, passing it to LoRA layers and updating the corresponding indices of the linear
-            layer output
+                getting the sub-batch, passing it to LoRA layers and updating the corresponding indices of the linear
+                layer output
             '''
             sub_batch = x[sub_batch_indices_list[i]].to(Dalora_A.weight.dtype)
             lora_output = Dalora_B(Dalora_A(dropout(sub_batch))) * scaling
@@ -515,13 +435,13 @@ class Linear(nn.Module, DaLoraLayer):
         **kwargs,
     ) -> None:
         '''
-        :param base_layer: original layer to be tuned
-        :param inputs: sampling data as layer's input
-        :param adapter_name: current adapter name
-        :param r: Dalora rank
-        :param Dalora_alpha: Dalora alpha
-        :param Dalora_dropout: lora dropout probability
-        :param kwargs: other parameters
+            :param base_layer: original layer to be tuned
+            :param inputs: sampling data as layer's input
+            :param adapter_name: current adapter name
+            :param r: Dalora rank
+            :param Dalora_alpha: Dalora alpha
+            :param Dalora_dropout: lora dropout probability
+            :param kwargs: other parameters
         '''
         super().__init__()
         DaLoraLayer.__init__(self, base_layer, **kwargs)
@@ -537,13 +457,13 @@ class Linear(nn.Module, DaLoraLayer):
             Dalora_dropout=Dalora_dropout,
         )
 
-    # compute ans return delta W
     def get_delta_weight(self, adapter) -> torch.Tensor:
         """
-        Compute the delta weight for the given adapter.
-        Args:
-            adapter (str):
-                The name of the adapter for which the delta weight should be computed.
+            Compute and return delta W.
+            Compute the delta weight for the given adapter.
+            Args:
+                adapter (str):
+                    The name of the adapter for which the delta weight should be computed.
         """
         device = self.Dalora_B[adapter].weight.device
         dtype = self.Dalora_B[adapter].weight.dtype
@@ -576,11 +496,11 @@ class Linear(nn.Module, DaLoraLayer):
     # merge all adapter's weight (delta W) into base layer's weight (W)
     def merge(self, adapter_names: Optional[list[str]] = None) -> None:
         """
-        Merge the active adapter weights into the base weights
-        Args:
-            adapter_names (`list[str]`, *optional*):
-                The list of adapter names that should be merged. If None, all active adapters will be merged.
-                Defaults to `None`.
+            Merge the active adapter weights into the base weights
+            Args:
+                adapter_names (`list[str]`, *optional*):
+                    The list of adapter names that should be merged. If None, all active adapters will be merged.
+                    Defaults to `None`.
         """
         adapter_names = check_adapters_to_merge(self, adapter_names)
 
@@ -598,9 +518,7 @@ class Linear(nn.Module, DaLoraLayer):
 
     # detach all adapter's weight (delta W) from merged base layer's weight (W + delta W)
     def unmerge(self) -> None:
-        """
-        This method unmerges all merged adapter layers from the base weights.
-        """
+        """This method unmerges all merged adapter layers from the base weights."""
         if not self.merged:
             warnings.warn("Already unmerged. Nothing to do.")
             return
@@ -649,9 +567,9 @@ class Linear(nn.Module, DaLoraLayer):
 # 返回当前还没有和base layer进行merge的adapter名称
 def check_adapters_to_merge(module: DaLoraLayer, adapter_names: Optional[list[str]] = None) -> list[str]:
     """
-    Helper function to check which adapters should be merged.
-    Only return those adapters that are not already merged. Give a warning if some or all of the adapters are already
-    merged.
+        Helper function to check which adapters should be merged.
+        Only return those adapters that are not already merged.
+        Give a warning if some or all of the adapters are already merged.
     """
     if adapter_names is None:
         adapter_names = module.active_adapters

@@ -1,6 +1,8 @@
 import copy
 import os
 from transformers import Trainer, TrainingArguments
+import torch
+import json
 
 # 训练器
 class ModelTrainer:
@@ -130,19 +132,38 @@ class ModelTrainer:
         # 训练
         self.model.config.use_cache = False
         trainer.train()
+
+        # 测试
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+
+        # 准备问答函数
+        def answer_question(question):
+            inputs = self.tokenizer(question, return_tensors="pt").to(device)
+            outputs = self.model.generate(**inputs, max_length=100)  # 设置生成的最大长度
+            answer = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+            return answer
+
+        # 示例问答
+        question = "什么是人工智能？"
+        answer = answer_question(question)
+        print("问题:", question)
+        print("答案:", answer)
+
         trainer.save_state()
 
         # 保存
         if self.isDalora is False:
-            # 保存当前训练状态（step，epoch，优化器状态）和模型
+            # 合并adapter
+            self.model = self.model.merge_and_unload()
+            self.tokenizer.save_pretrained(self.output_dir)
             self.model.save_pretrained(self.output_dir)
         else:
             # 直接保存模型和分词器
-            tokenizer.save_pretrained(self.output_dir)
-            dalora_model.save_pretrained(self.output_dir)
+            self.tokenizer.save_pretrained(self.output_dir)
+            self.model.save_pretrained(self.output_dir)
 
             # 向原始的的config对象中添加额外的重要参数
-            config = dalora_model.config.to_dict()
+            config = self.model.config.to_dict()
 
             config["auto_map"] = {
                 "AutoConfig": "DaloraConfig.DaloraConfig",
@@ -157,15 +178,12 @@ class ModelTrainer:
             )
 
             # 添加新的属性
-            config["module_dict"] = list(dalora_model.state_dict().keys())
-
-            print(type(dalora_model.state_dict().keys()))
-
+            config["module_dict"] = list(self.model.state_dict().keys())
             config["extra_dict"] = {
                 'default': {
-                    "dropout": 0.05,
-                    "rank": 8,
-                    "scaling": 32
+                    "dropout": 0.00,
+                    "rank": 32,
+                    "scaling": 1
                 }
             }
 

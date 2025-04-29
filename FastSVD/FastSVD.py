@@ -15,13 +15,13 @@ class FastSVD(nn.Module):
          cross=None
     ):
         '''
-        Args:
-        :param X: numpy array on CPU, [BL, din]
-        :param W: numpy array on CPU, [din, dout]
-        :param r: rank limitation
-        :param regu: int, number of U's columns to sample for standardization of column close to 1
-        :param lamb: float, lambda for regularization
-        :param cross: int, number of U's columns to sample for column vector orthogonalization
+            Args:
+            :param X: numpy array on CPU, [BL, din]
+            :param W: numpy array on CPU, [din, dout]
+            :param r: rank limitation
+            :param regu: int, number of U's columns to sample for standardization of column close to 1
+            :param lamb: float, lambda for regularization
+            :param cross: int, number of U's columns to sample for column vector orthogonalization
         '''
         super(FastSVD, self).__init__()
         self.gpu_id = cp.cuda.runtime.getDeviceCount() - 1  # 计算最后一个GPU的编号
@@ -33,7 +33,7 @@ class FastSVD(nn.Module):
         # 构建参数
         self.XW = cp.asnumpy(cp.dot(X, W))  # 相乘并转化为numpy数组，形状[BL, dout]
 
-        # # 先注释掉下面一行
+        # # for SGD method
         # Sr, VTr = self.precompute(self.XW, r) 
 
         # # for test
@@ -57,84 +57,69 @@ class FastSVD(nn.Module):
     # 得到初步的分解结果
     def precompute(self, XW, r):
         '''
-        Args:
-        :param XW: numpy array, [Bl, dout]
-        :param r: rank limitation
+            Compute SVD(XW) with rank constraint of r.
+            Args:
+            :param XW: numpy array, [Bl, dout]
+            :param r: rank limitation
         '''
-        # print("GPU id:", self.gpu_id)
-
-        # 指定设备并执行计算
+        # choose specific GPU to perform calculations
         with cp.cuda.Device(self.gpu_id):
             XW = cp.asarray(XW)
-            S, V = cp.linalg.eigh(cp.dot(XW.T, XW))  # [dout, dout]矩阵特征值分解
+            S, V = cp.linalg.eigh(cp.dot(XW.T, XW))  # [dout, dout] matrix eigenvalue decomposition
 
-            # 查看nan值的数量
+            # Check the number of Nan value
             nan_count = cp.sum(cp.isnan(S))
             if nan_count > 0:
                 raise ValueError(f'Nan value. Number: {nan_count}')
 
-            # 降序排列
-            indices = cp.argsort(S)[::-1]  # 获取特征值排序的索引
-            S = S[indices]  # 排序特征值
-            V = V[:, indices]  # 排序特征向量
+            # sort
+            indices = cp.argsort(S)[::-1]  # get the indices of sorted eigenvalues
+            S = S[indices]  # sort eigenvalues
+            V = V[:, indices]  # sort eigenvectors
 
-            # 修正半正定实对称矩阵XW.T @ XW特征值中的负值
-            S[S < 0] = 0.0
+            S[S < 0] = 0.0  # correct the negative eigenvalues
 
             '''
-            下面计算的过程中如果使用直接计算的方式，将会由于S对角线上出现0值而导致S的逆矩阵计算错误，于是需要进行设计：
-            首先我们设S中非0的元素的数量为n，则原始矩阵的乘法能够写为：[BL, n] * [n, n] * [n, dout]，所以说这里需要检查n和r的大小，
-            判断r是否大于n，r只能取小于等于n的值。
+                In the following calculation process, using a direct computation method may lead to errors in 
+                calculating the inverse of S due to the presence of 0 values on the diagonal of S. 
+                Therefore, a design is necessary: First, let n be the number of non-zero elements in S. 
+                The multiplication of the original matrices can be expressed as: [BL, n] * [n, n] * [n, dout]. 
+                Thus, it is important to check the sizes of n and r to determine whether r is greater than n. 
+                The value of r can only be less than or equal to n.
             '''
             n = cp.sum(S > 0)
             if r >= n:
                 print(f"The rank of the matrix S is {n}, r will be reset to {n}")
                 r = n
 
-            # 构建原始矩阵
-            S = cp.sqrt(cp.diag(S[:r]))  # 创建对角矩阵，形状[r, r]
-            VT = (V.T)[:r, :]  # 形状[r, dout]
+            # get Sigma matrix and V.T matrix
+            S = cp.sqrt(cp.diag(S[:r]))  # create diagonal matrix in shape of [r, r]
+            VT = (V.T)[:r, :]  # [r, dout]
 
             return cp.asnumpy(S), cp.asnumpy(VT)
 
-    # 直接计算得到
     def ComputeU(self):
-        S, VT = self.precompute(self.XW, self.dout)  # 直接计算出全量奇异值分解
+        '''Directly compute SVD(XW) with fast svd decomposition.'''
+        S, VT = self.precompute(self.XW, self.dout)
         U = self.XW @ VT.T @ np.linalg.inv(S)
-
-        '''
-        XW = U @ S @ VT
-        '''
-        # print("comput U:", U, U.shape)
-        # print("compute S:", S, S.shape)
-        # print("compute VT:", VT, VT.shape)
-        # print("compute INV S:", np.linalg.inv(S))
-        # print('\n')
-
-        # 查看逼近程度
-        delta = np.abs(self.XW - U @ S @ VT)
-        print("SVD(XW) Max bias:", np.max(delta))
-        print("SVD(XW) Average bias:", np.sum(delta) / (delta.shape[0] * delta.shape[1]))
-        print('\n')
-        del delta
 
         return U, S, VT
 
-    # 生成一个batch的数据对
     def batchsample(self, batch):
-        # 构建样本对
+        '''Generate a batch of data pairs.'''
+        # building sample element
         size = (batch, )
         Urow = torch.randint(0, self.BL, size)
         VTcol = torch.randint(0, self.dout, size)
 
-        # 进行采样
+        # sample
         VTbatch = self.VTr[:, VTcol]  # [r, B], tensor
         Ubatch = self.U[Urow, :]  # [B, r], tensor
-        target = torch.tensor(self.XW[Urow, VTcol], dtype=torch.double, requires_grad=False) # [B, B], tensor
+        target = torch.tensor(self.XW[Urow, VTcol], dtype=torch.double, requires_grad=False)  # [B, B], tensor
         return Ubatch, VTbatch, target
 
-    # 损失函数使用MSE，能够添加模一化正则项
     def Loss(self, fit, target):
+        '''The loss function uses MSE and can add a L1 regularization term.'''
         loss = torch.mean((fit-target)**2)
         if self.regu is None:
             return loss
@@ -147,21 +132,21 @@ class FastSVD(nn.Module):
             regular = torch.mean((Uregu - one)**2)
             return loss + self.lamb * regular
 
-    # 训练
     def train(self, epoch):
+        '''Compute SVD(XW) with SGD method.'''
         avg_loss = 0
         for i in range(epoch):
             Ub, VTb, tar = self.batchsample(self.batch_size)
             fit = Ub @ self.Sr @ VTb
             loss = self.Loss(fit, tar)
 
-            # 训练
+            # Training
             self.optimizer.zero_grad()
             loss.backward()
             self.optimizer.step()
 
             avg_loss = i / (i+1) * (avg_loss) + loss.item() / (i+1)
 
-            # 打印损失
+            # print loss
             if (i + 1) % 2000 == 0:
                 print(f"Epoch [{i + 1}/{epoch}], AVGLoss: {avg_loss:.4f}")

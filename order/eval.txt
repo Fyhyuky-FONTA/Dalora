@@ -1,0 +1,8 @@
+python evalm.py \
+    --model hf \
+    --model_args "pretrained=/root/autodl-fs/lama_lora,dtype=bfloat16" \
+    --device auto \
+    --tasks mbpp \
+    --num_fewshot 0 \
+    --batch_size 2 \
+    --confirm_run_unsafe_code 

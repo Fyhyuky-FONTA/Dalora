@@ -52,21 +52,21 @@ class DaLoraBuilder(nn.Module):
         adapter_name: str,
     ) -> None:
         super().__init__()
-        self.tokenizer = tokenizer # 模型的tokenizer
-        self.model = model  # 需要微调的transformers模型
-        self.data = sample_X  # 数据采样点
+        self.tokenizer = tokenizer  # tokenizer of model to add adapter to
+        self.model = model  # transformers model to add adapter to
+        self.data = sample_X  # sampled data
 
-        self.targeted_module_names: list[str] = []  # 模型需要添加adapter的模块
+        self.targeted_module_names: list[str] = []  # module name (linear layer name) to add adapter
 
-        # 初始化
+        # init
         if not hasattr(self, "Dalora_config"):
             self.Dalora_config = {}
-        self.Dalora_config[adapter_name] = Dalora_config # 添加当前adapter的配置文件
+        self.Dalora_config[adapter_name] = Dalora_config  # config of current adapter (a set of DaLoRA layer)
 
-        self.active_adapter: str | list[str] = adapter_name # 当前adapter名称
+        self.active_adapter: str | list[str] = adapter_name  # adapter name
         self.model.Dalora_config = self.Dalora_config  # Copy the Dalora_config in the injected model.
 
-        # 将适配器注入各层中
+        # inject adapter into all module which need to add adapter to
         self.inject_adapter(self.model, adapter_name)
 
     @property
@@ -80,27 +80,29 @@ class DaLoraBuilder(nn.Module):
     def inject_adapter(
         self,
         model: nn.Module,
-        adapter_name: str, autocast_adapter_dtype: bool = True,
+        adapter_name: str,
+        autocast_adapter_dtype: bool = True,
     ) -> None:
         r"""
-        Creates adapter layers and replaces the target modules with the adapter layers.
-        This method is called under the hood by `peft.mapping.get_peft_model` if a non-prompt
-        tuning adapter class is passed.
-        The corresponding PEFT config is directly retrieved from the `Dalora_config` attribute of the BaseTuner class.
-        Args:
-            model (`nn.Module`): The model to be tuned.
-            adapter_name (`str`): The adapter name.
+            Creates adapter layers and replaces the target modules with the adapter layers.
+            This method is called under the hood by `peft.mapping.get_peft_model` if a non-prompt
+            tuning adapter class is passed.
+            The corresponding PEFT config is directly retrieved from the `Dalora_config` attribute of
+            the BaseTuner class.
+            Args:
+                model (`nn.Module`): The model to be tuned.
+                adapter_name (`str`): The adapter name.
         """
         Dalora_config = self.Dalora_config[adapter_name]  # 当前adapter的配置文件
         device = model.device
 
         '''
-        由于我们使用的是left padding，于是mask向量开头会有前导0，这意味着这部分的语义聚合是
-        空的，于是前导零对应的输出向量全部都是Nan值，这和right padding不同，right padding末
-        尾的padding token对应的张量仍然能够聚合之前的token信息，不过聚合的长度都是相同的，于
-        是结尾的padding token输出张量不为Nan值，但是输出结果都相同。
-        为了处理left padding导致的Nan值问题，我们可以在每一层构建adapter之前将Nan值替换为0，
-        这样能够在使用SVD逼近的过程中使得这些位置被忽略掉。
+            由于我们使用的是left padding，于是mask向量开头会有前导0，这意味着这部分的语义聚合是
+            空的，于是前导零对应的输出向量全部都是Nan值，这和right padding不同，right padding末
+            尾的padding token对应的张量仍然能够聚合之前的token信息，不过聚合的长度都是相同的，于
+            是结尾的padding token输出张量不为Nan值，但是输出结果都相同。
+            为了处理left padding导致的Nan值问题，我们可以在每一层构建adapter之前将Nan值替换为0，
+            这样能够在使用SVD逼近的过程中使得这些位置被忽略掉。
         '''
         '''<<< 下面代码需要根据模型类型进行改写，代码写法对于不同的模型存在一定的区别，这里针对的是Llama-3-8B模型编写 >>>'''
 
@@ -123,16 +125,15 @@ class DaLoraBuilder(nn.Module):
         dtype = inputs_embeds.dtype  # 获取Embedding张量的信息
         target_length = attention_mask.shape[-1]
         cache_position = torch.arange(0, inputs_embeds.shape[1], device=inputs_embeds.device)  # cache位置参数
-        attention_mask = _prepare_4d_causal_attention_mask_with_cache_position(attention_mask=attention_mask,
-                                                                               sequence_length=seq,
-                                                                               target_length=target_length,
-                                                                               dtype=dtype,
-                                                                               device=device,
-                                                                               cache_position=cache_position,
-                                                                               batch_size=inputs_embeds.shape[0])
-
-        # print("att_mask:", attention_mask)
-        # print("Attention mask shape:", attention_mask.shape)
+        attention_mask = _prepare_4d_causal_attention_mask_with_cache_position(
+            attention_mask=attention_mask,
+           sequence_length=seq,
+           target_length=target_length,
+           dtype=dtype,
+           device=device,
+           cache_position=cache_position,
+           batch_size=inputs_embeds.shape[0]
+        )
 
         # 使用虚张量获取旋转位置编码张量，对照源码进行编写
         position_ids = cache_position.unsqueeze(0)
@@ -140,42 +141,35 @@ class DaLoraBuilder(nn.Module):
         attn = lama_model.layers[0].self_attn  # 获取第一层的attention层即可
         virtual = torch.rand(batch, seq, attn.num_key_value_heads, attn.head_dim).transpose(1, 2).to(dtype)  # 注意需要进行类型转换
         position_embeddings = attn.rotary_emb(virtual, position_ids)
-        
-        a = 0
 
         # 将数据张量经过网络的每一个模块
         with torch.no_grad():
             for layer_idx in tqdm(range(len(lama_model.layers))):
-
                 '''
-                Copy from Attention module forward function down here, we catch each of the sub-module's input 
-                and output to construct our B & A matrix. It is important to note that we should pass the sampling
-                data through the layer which we want to add adapter before adding adapter to it to in case the 
-                layer is changed to lead some error.
+                    Copy from Attention module forward function down here, we catch each of the sub-module's input 
+                    and output to construct our B & A matrix. It is important to note that we should pass the sampling
+                    data through the layer which we want to add adapter before adding adapter to it to in case the 
+                    layer is changed to lead some error.
                 '''
                 Decoder = lama_model.layers[layer_idx]
 
                 # 提前获取下一层输出，不返回attention输出和Cache输出模式
                 # 将Nan值置为0
-                nexts_embeds = Decoder(hidden_states=inputs_embeds,
-                                       attention_mask=attention_mask,
-                                       position_ids=position_ids,
-                                       past_key_value=None,
-                                       output_attentions=False,
-                                       use_cache=False,
-                                       cache_position=cache_position,
-                                       position_embeddings=position_embeddings)[0]
+                nexts_embeds = Decoder(
+                    hidden_states=inputs_embeds,
+                   attention_mask=attention_mask,
+                   position_ids=position_ids,
+                   past_key_value=None,
+                   output_attentions=False,
+                   use_cache=False,
+                   cache_position=cache_position,
+                   position_embeddings=position_embeddings
+                )[0]
                 nexts_embeds = torch.nan_to_num(nexts_embeds, nan=0.0)
-
-                # print(f"Decoder Layer{layer_idx} output shape:", inputs_embeds.shape)
                 
                 ''' Attention Layer '''
-                # print("inputs:", inputs_embeds[0, 0, :])
-
                 attention = Decoder.self_attn
                 XRMS = Decoder.input_layernorm(inputs_embeds)  # RMS归一化层，是attention层的输入
-
-                # print("RMS Layer output shape:", XRMS.shape)
 
                 # prepare data for next layer first
                 query_states = attention.q_proj(XRMS)  # [B, seq, attn_head * head_dim]
@@ -200,19 +194,12 @@ class DaLoraBuilder(nn.Module):
                 # mask
                 causal_mask = attention_mask[:, :, :, : key_states.shape[-2]]
 
-                # print("mask:", causal_mask[0, 0, 0, :])
-
                 attn_weights = attn_weights + causal_mask
 
                 attn_weights = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32).to(query_states.dtype)
                 attn_weights = nn.functional.dropout(attn_weights, p=attention.attention_dropout, training=attention.training)
 
-                # print("attention:", attn_weights[0, 0, 0, :])
-
                 score = torch.matmul(attn_weights, value_states)
-
-                # print("values:", value_states[0, 0, 0, :])
-                # print("scores:", score[0, 0, 0, :])
 
                 score = score.transpose(1, 2).contiguous()  # [B, seq, attn_head, head_dim]
 
@@ -251,32 +238,26 @@ class DaLoraBuilder(nn.Module):
 
                 # test
                 # 当前层的输出
-                nadapters_embeds = Decoder(hidden_states=inputs_embeds,
-                                           attention_mask=attention_mask,
-                                           position_ids=position_ids,
-                                           past_key_value=None,
-                                           output_attentions=False,
-                                           use_cache=False,
-                                           cache_position=cache_position,
-                                           position_embeddings=position_embeddings)[0]
+                nadapters_embeds = Decoder(
+                    hidden_states=inputs_embeds,
+                    attention_mask=attention_mask,
+                    position_ids=position_ids,
+                    past_key_value=None,
+                    output_attentions=False,
+                    use_cache=False,
+                    cache_position=cache_position,
+                    position_embeddings=position_embeddings
+                )[0]
                 nadapters_embeds = torch.nan_to_num(nadapters_embeds, nan=0.0)
 
-                # print(f"Adapter-added Decoder Layer{layer_idx} output shape:", nadapters_embeds.shape)
-                # print('\n')
-                # print("Adapter added output:", nadapters_embeds[-1, :, :])
-                # print("Original output:", nexts_embeds[-1, :, :])
-
-                delta = torch.abs((nadapters_embeds - nexts_embeds) / (nexts_embeds + 0.0000001))
-                print("Test:", delta)
-                
                 # get next Decoder's input
                 inputs_embeds = nexts_embeds
-
+                
         '''<<< 上面代码需要根据模型类型进行改写 >>>'''
 
         # 设置当前适配器为可训练
-        self.set_adapter(self.active_adapters)  # 仅设置当前名称的adapter为可训练：1.2.8，1.2.7
-        self._mark_only_adapters_as_trainable(model)  # 保证所有的adapter可训练：1.2.9
+        self.set_adapter(self.active_adapters)  # 仅设置当前名称的adapter为可训练
+        self._mark_only_adapters_as_trainable(model)  # 保证所有的adapter可训练
 
         # 推理模式
         if self.Dalora_config[adapter_name].inference_mode:
@@ -287,17 +268,17 @@ class DaLoraBuilder(nn.Module):
 
     # 检测当前模块是否存在于目标模块列表中，如果存在则创建DaLoRA层
     def check_check_target_module_exists(
-            self,
-            Dalora_config,
-            adapter_name,
-            model,
-            submodule: nn.Module,
-            inputs: torch.tensor
+        self,
+        Dalora_config,
+        adapter_name,
+        model,
+        submodule: nn.Module,
+        inputs: torch.tensor
     ):
         '''
-        Args:
-            :param submodule: current submodule to add adapter to
-            :param inputs: sample data inputs for module
+            Args:
+                :param submodule: current submodule to add adapter to
+                :param inputs: sample data inputs for module
         '''
 
         key = get_name(model, submodule) # get module's name
@@ -330,22 +311,22 @@ class DaLoraBuilder(nn.Module):
 
     # 创建DaLora层并替换掉原始模块
     def _create_and_replace(
-            self,
-            Dalora_config,
-            adapter_name,
-            target,
-            target_name,
-            parent,
-            inputs,
-            current_key,
+        self,
+        Dalora_config,
+        adapter_name,
+        target,
+        target_name,
+        parent,
+        inputs,
+        current_key,
     ):
         '''
-        Args:
-            :param target: 目标模块。
-            :param target_name: 目标模块名称（single name，不是点式名称）。
-            :param parent: 目标模块的直接父模块。
-            :param inputs: sampling date as crrent module's inputs
-            :param current_key: 当前模块的完整名称（点式名称）。
+            Args:
+                :param target: 目标模块。
+                :param target_name: 目标模块名称（single name，不是点式名称）。
+                :param parent: 目标模块的直接父模块。
+                :param inputs: sampling date as crrent module's inputs
+                :param current_key: 当前模块的完整名称（点式名称）。
         '''
 
         # target_name_key保存pattern_keys中第一个与current_key匹配的键，即如果当前模块需要特殊Lora参数则将会被提取出
@@ -386,10 +367,10 @@ class DaLoraBuilder(nn.Module):
     @staticmethod
     def _create_new_module(adapter_name, inputs, target, **kwargs):
         '''
-        :param Dalora_config: config
-        :param adapter_name: current adapter name
-        :param inputs: sampling data as target's inputs
-        :param target: module which needs to create adapter for
+            :param Dalora_config: config
+            :param adapter_name: current adapter name
+            :param inputs: sampling data as target's inputs
+            :param target: module which needs to create adapter for
         '''
         return Linear(target, inputs, adapter_name, **kwargs)
 
@@ -413,10 +394,10 @@ class DaLoraBuilder(nn.Module):
     # 设置指定的adapter为可训练
     def set_adapter(self, adapter_name: str | list[str]) -> None:
         """
-        Set the active adapter(s).
-        Additionally, this function will set the specified adapters to trainable (i.e., requires_grad=True).
-        Args:
-            adapter_name (`str` or `list[str]`): Name of the adapter(s) to be activated.
+            Set the active adapter(s).
+            Additionally, this function will set the specified adapters to trainable (i.e., requires_grad=True).
+            Args:
+                adapter_name (`str` or `list[str]`): Name of the adapter(s) to be activated.
         """
         for module in self.model.modules():
             if isinstance(module, DaLoraLayer):

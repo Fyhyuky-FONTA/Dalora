@@ -1,3 +1,7 @@
+"""
+This file is only used to separate the linear layer parameters and decomposition results from the model,
+and save them in a different location. It is currently for testing purposes only.
+"""
 import torch
 import numpy as np
 from typing import List, Optional
@@ -42,13 +46,15 @@ class AdapterConstructer:
         dtype, device = inputs_embeds.dtype, inputs_embeds.device  # 获取Embedding张量的信息
         target_length = attention_mask.shape[-1]
         cache_position = torch.arange(0, inputs_embeds.shape[1], device=inputs_embeds.device)  # cache位置参数
-        attention_mask = self._prepare_4d_causal_attention_mask_with_cache_position(attention_mask,
-                                                                                    sequence_length=seq,
-                                                                                    target_length=target_length,
-                                                                                    dtype=dtype,
-                                                                                    device=device,
-                                                                                    cache_position=cache_position,
-                                                                                    batch_size=inputs_embeds.shape[0])
+        attention_mask = self._prepare_4d_causal_attention_mask_with_cache_position(
+            attention_mask,
+            sequence_length=seq,
+            target_length=target_length,
+            dtype=dtype,
+            device=device,
+            cache_position=cache_position,
+            batch_size=inputs_embeds.shape[0]
+        )
         print("Attention mask shape:", attention_mask.shape)
 
         # 使用虚张量获取旋转位置编码张量，对照源码进行编写
@@ -75,14 +81,16 @@ class AdapterConstructer:
             del XRMS
 
             # 不返回attention输出和Cache输出模式
-            inputs_embeds = Decoder(hidden_states=inputs_embeds,
-                                    attention_mask=attention_mask,
-                                    position_ids=position_ids,
-                                    past_key_value=None,
-                                    output_attentions=False,
-                                    use_cache=False,
-                                    cache_position=cache_position,
-                                    position_embeddings=position_embeddings)[0]
+            inputs_embeds = Decoder(
+                hidden_states=inputs_embeds,
+                attention_mask=attention_mask,
+                position_ids=position_ids,
+                past_key_value=None,
+                output_attentions=False,
+                use_cache=False,
+                cache_position=cache_position,
+                position_embeddings=position_embeddings
+            )[0]
             print(f"Decoder Layer{layer_idx} output shape:", inputs_embeds.shape)
 
     # 创建4维张量，使用的是Llama源码中的mask构造方式
@@ -178,12 +186,16 @@ class AdapterConstructer:
                 W = W.cpu().numpy()
 
                 # 创建快速SVD对象
-                fast = FastSVD(X=X, W=W, r=rank,
-                               batch_size=batch_size,
-                               lr=learning_rate,
-                               regu=regularization,
-                               lamb=lamb,
-                               cross=cross_regu)
+                fast = FastSVD(
+                    X=X,
+                    W=W,
+                    r=rank,
+                    batch_size=batch_size,
+                    lr=learning_rate,
+                    regu=regularization,
+                    lamb=lamb,
+                    cross=cross_regu
+                )
 
                 # 训练还是直接计算出闭式解
                 if method == 'train':
